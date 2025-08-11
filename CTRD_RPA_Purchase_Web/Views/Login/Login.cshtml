@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    var page = ViewBag.page;
+}
+
+<style>
+    body {
+        background-color: #508bfc;
+    }
+</style>
+
+<div  id="VuePage" class="row d-flex justify-content-center align-items-center h-100">
+    <div class="">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+
+                <h3 class="mb-4">採購進度查詢系統</h3>
+                <h3 class="mb-4">Sign in</h3>
+
+                <div class="form-outline mb-4">
+                    <input type="text" id="inputAccount" class="form-control form-control-lg" v-model="form.UserID" placeholder="AD帳號" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="password" id="inputPassword" class="form-control form-control-lg" v-model="form.UserPwd" placeholder="密碼" />
+                </div>
+
+                <button id="btn_login" class="btn btn-primary btn-lg btn-block" type="button" v-on:click="DoLogin()">Login</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@Scripts.Render("~/Scripts/vue.js")
+
+<script type="text/javascript">
+
+    window.addEventListener('DOMContentLoaded', event => {
+        $("#nav_topbar").css('display', 'none');
+        $("#div_footer").css('display', 'none');
+    })
+
+     var VuePage = new Vue({
+        el: '#VuePage'
+        , data: function () {
+            var data = {
+                form: {}
+            };
+            return data;
+        }
+        , methods: {
+            // 執行登入按鈕
+            DoLogin: function () {
+                var self = this;
+
+                if (!self.form.UserID) {
+                    alert("請輸入AD帳號 !");
+                    return;
+                }
+
+                // 組合表單資料
+                var postData = {};
+                postData['userID'] = self.form.UserID;
+                postData['userPwd'] = self.form.UserPwd;
+
+                console.log("postData:");
+                console.log(postData);
+
+                // 使用 jQuery Ajax 傳送至後端
+                $.ajax({
+                    url:'@Url.Content("~/Login/Login")',
+                    method:'POST',
+                    dataType:'json',
+                    data: { inModel: postData },
+                    success: function (datas) {
+                        if (datas.ErrMsg) {
+                            alert(datas.ErrMsg);
+                            return;
+                        }
+                        location.href = '@Url.Content("~/Home/"+ page)';
+                    },
+                    error: function (err) {
+                        $('#ErrorMsg').html(err.responseText);
+                        $('#ErrorAlert').modal('toggle');
+                    },
+                });
+            }
+        }
+    })
+
+    // Get the input field
+    var input = document.getElementById("inputPassword");
+
+    // Execute a function when the user presses a key on the keyboard
+    input.addEventListener("keypress", function (event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("btn_login").click();
+        }
+    });
+</script>

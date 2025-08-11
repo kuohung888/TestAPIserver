@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AOITransferTRD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lv_strLotInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strRtnMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AOITransferTRDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AOITransferTRDResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strRtnMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMESScheduleInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="i_strJsonLotInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strMESLotInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strRtnMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMESScheduleInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMESScheduleInfoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strMESLotInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strRtnMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMESStripQtyByStep">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="i_strJsonLotInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strMESStripQtyByStep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strRtnMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMESStripQtyByStepResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMESStripQtyByStepResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strMESStripQtyByStep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strRtnMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMESAOITrackoutData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="i_strSchedule" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="i_strStepId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strMESAOITrackoutData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strRtnMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMESAOITrackoutDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMESAOITrackoutDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strMESAOITrackoutData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="r_strRtnMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AOITransferTRDSoapIn">
+    <wsdl:part name="parameters" element="tns:AOITransferTRD" />
+  </wsdl:message>
+  <wsdl:message name="AOITransferTRDSoapOut">
+    <wsdl:part name="parameters" element="tns:AOITransferTRDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMESScheduleInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMESScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMESScheduleInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMESScheduleInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMESStripQtyByStepSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMESStripQtyByStep" />
+  </wsdl:message>
+  <wsdl:message name="GetMESStripQtyByStepSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMESStripQtyByStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMESAOITrackoutDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMESAOITrackoutData" />
+  </wsdl:message>
+  <wsdl:message name="GetMESAOITrackoutDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMESAOITrackoutDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AOIServiceSoap">
+    <wsdl:operation name="AOITransferTRD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Description：&lt;/b&gt;AOI File Transfer TRD File&lt;br&gt;&lt;b&gt;Ref Param：&lt;/b&gt;(&lt;u&gt;string&lt;/u&gt;)&lt;i&gt;&lt;/i&gt;:&lt;br&gt;　　　　　　　(&lt;u&gt;string&lt;/u&gt;)&lt;i&gt;r_strRtnMsg&lt;/i&gt;:回覆此次作業的訊息&lt;br&gt;&lt;b&gt;Return：&lt;/b&gt;(&lt;u&gt;boolean&lt;/u&gt;)此次WebServices呼叫是否成功&lt;br&gt;&lt;b&gt;ReleaseUser：&lt;/b&gt;CandyTC Chen&lt;br&gt;&lt;b&gt;ReleaseDate：&lt;/b&gt;2016/06/28&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:AOITransferTRDSoapIn" />
+      <wsdl:output message="tns:AOITransferTRDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMESScheduleInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Description：&lt;/b&gt;Get MES Schedule Info&lt;br&gt;&lt;b&gt;Ref Param：&lt;/b&gt;(&lt;u&gt;string&lt;/u&gt;)&lt;i&gt;&lt;/i&gt;:&lt;br&gt;　　　　　　　(&lt;u&gt;string&lt;/u&gt;)&lt;i&gt;r_strRtnMsg&lt;/i&gt;:回覆此次作業的訊息&lt;br&gt;&lt;b&gt;Return：&lt;/b&gt;(&lt;u&gt;boolean&lt;/u&gt;)此次WebServices呼叫是否成功&lt;br&gt;&lt;b&gt;ReleaseUser：&lt;/b&gt;Jackey Chiu&lt;br&gt;&lt;b&gt;ReleaseDate：&lt;/b&gt;2021/08/04&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMESScheduleInfoSoapIn" />
+      <wsdl:output message="tns:GetMESScheduleInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMESStripQtyByStep">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Description：&lt;/b&gt;Get MES StripQty ByStep&lt;br&gt;&lt;b&gt;Ref Param：&lt;/b&gt;(&lt;u&gt;string&lt;/u&gt;)&lt;i&gt;&lt;/i&gt;:&lt;br&gt;　　　　　　　(&lt;u&gt;string&lt;/u&gt;)&lt;i&gt;r_strRtnMsg&lt;/i&gt;:回覆此次作業的訊息&lt;br&gt;&lt;b&gt;Return：&lt;/b&gt;(&lt;u&gt;boolean&lt;/u&gt;)此次WebServices呼叫是否成功&lt;br&gt;&lt;b&gt;ReleaseUser：&lt;/b&gt;Jackey Chiu&lt;br&gt;&lt;b&gt;ReleaseDate：&lt;/b&gt;2021/08/04&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMESStripQtyByStepSoapIn" />
+      <wsdl:output message="tns:GetMESStripQtyByStepSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMESAOITrackoutData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Description：&lt;/b&gt;Get MES AOI Trackout Data&lt;br&gt;&lt;b&gt;Ref Param：&lt;/b&gt;(&lt;u&gt;string&lt;/u&gt;)&lt;i&gt;&lt;/i&gt;:&lt;br&gt;　　　　　　　(&lt;u&gt;string&lt;/u&gt;)&lt;i&gt;r_strRtnMsg&lt;/i&gt;:回覆此次作業的訊息&lt;br&gt;&lt;b&gt;Return：&lt;/b&gt;(&lt;u&gt;boolean&lt;/u&gt;)此次WebServices呼叫是否成功&lt;br&gt;&lt;b&gt;ReleaseUser：&lt;/b&gt;Jackey Chiu&lt;br&gt;&lt;b&gt;ReleaseDate：&lt;/b&gt;2021/08/04&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMESAOITrackoutDataSoapIn" />
+      <wsdl:output message="tns:GetMESAOITrackoutDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AOIServiceSoap" type="tns:AOIServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AOITransferTRD">
+      <soap:operation soapAction="http://tempuri.org/AOITransferTRD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMESScheduleInfo">
+      <soap:operation soapAction="http://tempuri.org/GetMESScheduleInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMESStripQtyByStep">
+      <soap:operation soapAction="http://tempuri.org/GetMESStripQtyByStep" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMESAOITrackoutData">
+      <soap:operation soapAction="http://tempuri.org/GetMESAOITrackoutData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AOIServiceSoap12" type="tns:AOIServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AOITransferTRD">
+      <soap12:operation soapAction="http://tempuri.org/AOITransferTRD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMESScheduleInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetMESScheduleInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMESStripQtyByStep">
+      <soap12:operation soapAction="http://tempuri.org/GetMESStripQtyByStep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMESAOITrackoutData">
+      <soap12:operation soapAction="http://tempuri.org/GetMESAOITrackoutData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AOIService">
+    <wsdl:port name="AOIServiceSoap" binding="tns:AOIServiceSoap">
+      <soap:address location="http://10.16.22.228:8000/AOIService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AOIServiceSoap12" binding="tns:AOIServiceSoap12">
+      <soap12:address location="http://10.16.22.228:8000/AOIService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

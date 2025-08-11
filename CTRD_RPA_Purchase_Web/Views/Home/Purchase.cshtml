@@ -1,0 +1,121 @@
+﻿@using System.Data
+@model DataTable
+@{
+    ViewBag.Title = "採購清單";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!-- Page Heading -->
+<div class="card shadow mb-3 p-3">
+    <!-- Topbar Search -->
+    <form class=" d-sm-inline-block form-inline " name="search_form" method="post">
+        <div class="row">
+
+            <div class="col-auto input-group  mb-1">
+                <label class="">E-PR號碼    </label>
+                <input id="input_e_pr_num" name="input_e_pr_num" type="text" class="form-control bg-light border-1 small input-group-append ml-1" placeholder="" value="@ViewBag.EPrNum">
+            </div>
+
+            <div class="col-2 input-group  mb-1">
+                <button class="btn btn-secondary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                    <span class="text">查詢</span>
+                </button>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<!-- 查詢結果表格 -->
+<div class="card shadow mb-3">
+    <!-- DataTales 表頭 -->
+    <div class="card-header ">
+        <div class="row align-items-center">
+            <div class="col-auto mr-auto">
+                <h5 class="m-0 font-weight-bold text-primary">查詢列表</h5>
+            </div>
+        </div>
+    </div>
+    <!-- DataTales 表內容 -->
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>E-PR號碼    </th>
+                        <th>品名</th>
+                        <th>簽核中關卡</th>
+                        <th>待簽核人員</th>
+                        <th>狀態</th>
+                        <th>SAP PR</th>
+                        <th>SAP PO</th>
+                        <th>Owner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow dr in Model.Rows)
+                    {
+                        <tr>
+                            <td>@dr["e_pr_num"]</td>
+                            <td>@dr["product_name"]</td>
+                            <td>@dr["sign_off_stage"]</td>
+                            <td>@dr["approval_staff"]</td>
+                            <td>@dr["state"]</td>
+                            <td>@dr["sap_pr"]</td>
+                            <td>@dr["sap_po"]</td>
+                            <td>@dr["owner"]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    window.addEventListener('DOMContentLoaded', event => {
+        /* 如果要綁定AD登入，請取消這區塊註解
+        if ('@Session["UserId"]' == '') {
+            location.href = '@Url.Content("~/Login/Login?page=Purchase")';
+        } else {
+             // _Layout.cshtml 的 #navbar_userid 顯示 USER Name
+            $("#navbar_userid").html('Hi ' + '@Session["UserName"]');
+    }
+        */
+
+        var count = $('#dataTable th').length;
+        $('#dataTable').DataTable({
+            //"searching": false,
+            "processing": true,
+            "order": [[count - 3, "desc"]],
+            "lengthMenu": [
+                [10, 25, 50, -1],
+                [10, 25, 50, 'All'],
+            ],
+            //"info": false,
+            "scrollCollapse": true,
+            "pageLength": 10,
+            //"bLengthChange": false,
+            //stateSave: true, // 表格狀態儲存:更新頁面時，表格顯示頁不變
+
+            "language": {
+                "lengthMenu": "顯示 _MENU_ 筆資料",
+                "sInfo": "目前有 _MAX_ 筆資料",
+                "sInfoEmpty": "目前共有 0 筆紀錄",
+                "sSearch": "搜尋:",
+                "oPaginate": {
+                    "sFirst": "首頁",
+                    "sPrevious": "上一頁",
+                    "sNext": "下一頁",
+                    "sLast": "末頁"
+                }
+            },
+        });
+    })
+</script>

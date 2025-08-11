@@ -1,0 +1,443 @@
+﻿@using System.Data
+@model DataTable
+@{
+    ViewBag.Title = "統計Defect Code Fail by 批";
+
+    var site = ViewBag.site;
+    var defect_code_name = ViewBag.SelectedDefect;
+
+    DataTable dt_lotList = ViewData["dt_lotList"] as DataTable;
+
+    DataTable dt_defectPPMByLot = ViewData["dt_defectPPMByLot"] as DataTable;
+
+    string[] lot_number = dt_defectPPMByLot.AsEnumerable().Select(r => r.Field<string>("lot_number")).ToArray();
+    int[] defect_fail_ppm = dt_defectPPMByLot.AsEnumerable().Select(r => r.Field<int>("defect_fail_ppm")).ToArray();
+
+    var defect_max = Json.Encode("");
+    if (defect_fail_ppm.Count() > 0)
+    {
+        defect_max = Json.Encode(defect_fail_ppm.Max());
+    }
+
+    var jsonLotNo = Json.Encode(lot_number);//將Controller傳來轉型成json
+    var jsonFailppm = Json.Encode(defect_fail_ppm);//將透過Model讀取的資料轉成json
+}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">@ViewBag.Title</h1>
+<p class="mb-4"></p>
+
+<div class="row">
+
+    <div class="col-3">
+
+        <form method="post" name="input_form">
+            <!-- 選擇站別 -->
+            <div class="input-group mb-3">
+                <div class="dropdown input-group-prepend">
+                    <button class="btn btn-info" type="button" aria-haspopup="false" aria-expanded="false">
+                        站別
+                    </button>
+                </div>
+                <select name="site_Select" class="form-control rounded-0" style="overflow-x: auto;" id="site_Select" onchange="siteChange()">
+                    @if (ViewBag.site == "TST")
+                    {
+                        <option>AOI</option>
+                        <option>AVI</option>
+                        <option selected>TST</option>
+                    }
+                    else if (ViewBag.site == "AVI")
+                    {
+                        <option>AOI</option>
+                        <option selected>AVI</option>
+                        <option>TST</option>
+                    }
+                    else
+                    {
+                        <option selected>AOI</option>
+                        <option>AVI</option>
+                        <option>TST</option>
+                    }
+                </select>
+                @*<input type="text" name="input_site" id="input_site" class="form-control" placeholder="站別..." value="@ViewBag.site" onchange="siteChange(this)" aria-label="Station" aria-describedby="basic-addon1">*@
+            </div>
+
+            <!-- 輸入圖號 -->
+            <div class="input-group mb-3">
+                <div class="dropdown input-group-prepend">
+                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false">
+                        圖號
+                    </button>
+                </div>
+                <input type="text" name="input_DWG" id="input_DWG" class="form-control " placeholder="圖號..." value="@ViewBag.DWG">
+            </div>
+
+            <!-- 輸入料號板序 -->
+            <div class="input-group mb-3">
+                <div class="dropdown input-group-prepend">
+                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false">
+                        料號板序
+                    </button>
+                </div>
+                <input type="text" name="input_modelNum" id="input_modelNum" class="form-control" placeholder="料號板序..." value="@ViewBag.Model_num" aria-label="Lot" aria-describedby="basic-addon1">
+            </div>
+
+            <!-- 輸入日期 -->
+            <div class="input-group mb-3">
+                <div class="dropdown input-group-prepend">
+                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false">
+                        開始日期
+                    </button>
+                </div>
+                <input id="input_StartDate" name="input_StartDate" type="date" class="form-control bg-light border-1 small" placeholder="yyyy/mm/dd" value="@ViewBag.StartDate">
+            </div>
+            <div class="input-group mb-3">
+                <div class="dropdown input-group-prepend">
+                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false">
+                        結束日期
+                    </button>
+                </div>
+                <input id="input_EndDate" name="input_EndDate" type="date" class="form-control bg-light border-1 small" placeholder="yyyy/mm/dd" value="@ViewBag.EndDate">
+            </div>
+
+
+            <!-- 選擇Defect code -->
+            <div class="input-group mt-2 mb-3">
+                @*<a href="#" class="list-group-item list-group-item-action disabled text-white bg-info rounded-top">Defect Code</a>*@
+                <div class=" input-group-prepend">
+                    <button class="btn btn-info" type="button" aria-haspopup="false" aria-expanded="false">
+                        缺點名稱
+                    </button>
+                </div>
+                <select name="defect_code_Select" class="form-control rounded-0" style="overflow-x: auto;" id="defect_code_Select">
+                    @foreach (String code in ViewBag.DefectCodeList)
+                    {
+                        if (ViewBag.SelectedDefect == code)
+                        {
+                            <option selected>@code</option>
+                        }
+                        else
+                        {
+                            <option>@code</option>
+                        }
+                    }
+                </select>
+
+            </div>
+            <!-- 查詢批號 -->
+            <button type="submit" class="btn btn-secondary mb-3 " value="btn_search_lot" id="btn_search_lot" name="press_item">查詢批號</button>
+        </form>
+
+    </div>
+
+    <div class="col-9 ">
+        <!-- 批號清單 DataTales -->
+        <div class="card shadow mb-4">
+            @using (Html.BeginForm("DefectByLot", "Analysis", FormMethod.Post, new { name = "lotForm", id = "lotForm" }))
+            {
+                @Html.Hidden("site_Select")
+                @Html.Hidden("input_DWG")
+                @Html.Hidden("input_modelNum")
+                @Html.Hidden("input_StartDate")
+                @Html.Hidden("input_EndDate")
+                @Html.Hidden("defect_code_Select")
+                @Html.Hidden("lot_list", new { id = "lot_list" })
+
+                <div class="card-header py-2">
+                    <div class="row align-items-center">
+
+                        <div class=" ml-2">
+                            <h5 class="m-0 font-weight-bold text-primary">批號清單</h5>
+                        </div>
+
+                        <div class="col">
+                            <button id="btn_multiLotStatic" class="btn btn-success " type="submit" value="btn_multiLotStatic" name="press_item">
+                                <span class="text">統計</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" style="height:260px">
+                        <table class="table table-bordered table-hover display select" id="dataTable_multiLot" style="width:100%; height:300px" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th><input name="select_all" value="1" type="checkbox"></th>
+                                    <th>批號</th>
+                                    <th>板數</th>
+                                    <th>日期時間</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (DataRow dr in dt_lotList.Rows)
+                                {
+                                    <tr>
+                                        <td></td>
+                                        <td>@dr["lot_num"]</td>
+                                        <td>@dr["total_panel"]</td>
+                                        <td>@DateTime.Parse(dr["datetime"].ToString()).ToString("yyyy/MM/dd HH:mm:ss")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="col-9">
+        <!-- Bar Chart -->
+        <div class="card shadow " style="height:500px">
+
+            <div class="card-header py-2">
+                <div class="row align-items-center">
+
+                    <div class="col-auto">
+                        <h5 class="m-0 font-weight-bold text-primary">各批PPM統計圖</h5>
+                    </div>
+
+                    <div class="col-auto">
+                        <button class="btn btn-info" onclick="resetZoom()">Reset Zoom</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 繪製圖表區塊 -->
+            <div class="card-body">
+
+                <div class="chart-bar" style="width:100%;height:100%">
+                    <canvas id="myBarChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-3  ">
+        <!-- 統計表格與跳轉單片 -->
+        <div class=" card shadow" style="height:500px">
+            @using (Html.BeginForm("ShowStackMapping", "Analysis", FormMethod.Post, new { name = "lotppmForm", id = "lotppmForm", target = "_blank" }))
+            {
+                @Html.Hidden("input_site", (object)site)
+                @Html.Hidden("input_defect_code", (object)defect_code_name)
+                <div class="card-header py-3">
+                    <div class="row align-items-center">
+
+                        <div class="col-auto mr-auto">
+                            <h5 class="m-0 font-weight-bold text-primary">各批PPM統計表</h5>
+                        </div>
+
+                        <div class="col-auto">
+                            <button id="download_btn" class="btn btn-info " type="button" onclick="exportExcel(this);">
+                                <span class="text">下載報表</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" style="height:390px">
+                        <table class="table table-bordered table-hover display select" id="dataTable_lotppm" style="width:100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>批號</th>
+                                    <th>顆數</th>
+                                    <th>PPM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (DataRow dr in dt_defectPPMByLot.Rows)
+                                {
+                                    <tr>
+                                        <td>
+                                            <button type="submit" id="btn_start_drawing" class="btn btn-success " value="@dr["lot_number"]" name="press_lot">
+                                                <span class="text">疊圖</span>
+                                            </button>
+                                        </td>
+                                        <td>@dr["lot_number"]</td>
+                                        <td>@dr["defect_fail_count"]</td>
+                                        <td>@dr["defect_fail_ppm"]</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- 網頁提示訊息 -->
+@if (ViewBag.TestMsg != null && ViewBag.TestMsg != "")
+{
+    <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(ViewBag.TestMsg));
+        alert(message);
+    </script>
+}
+
+@Scripts.Render("~/vendor/chart.js/Chart.min.js")
+@Scripts.Render("~/vendor/chart.js/chartjs-plugin-zoom.min.js")
+
+
+<script type="text/javascript">
+
+    function exportExcel(e) {
+        //var sHtml = htmlEncode($("#dataTable_lotppm")[0].outerHTML);//做html編碼
+
+        //$("input[name='hHtml']").val(sHtml);
+        $("input[name='input_site']").val($("#site_Select").val());
+        // 20220701 待解決~~~將勾選的lot list帶入
+        $("input[name='input_lot']").val(@Html.Raw(jsonLotNo));
+        $("input[name='input_defect_code']").val($("#defect_code_Select").val());
+        //表單提交
+        $("form[name='ppmDownloadForm']").submit();
+    }
+
+    function siteChange(obj) {
+        $("form[name='input_form']").submit();
+    }
+
+
+    // 繪製圖表
+    var ctx = document.getElementById("myBarChart");
+    var barColor = "rgba(54, 162, 235, 0.5)";
+
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: @Html.Raw(jsonLotNo),
+            datasets: [{
+                label: "ppm",
+                //backgroundColor: "#4e73df",
+                //圖表背景色
+                backgroundColor: barColor,
+                hoverBackgroundColor: "#2e59d9",
+                borderColor: "#4e73df",
+                data: @Html.Raw(jsonFailppm),
+            }],
+        },
+        options: {
+            plugins: {
+                zoom: {
+                    limits: {
+                        y: { min: 0, max: 1000000 },
+                    },
+                    zoom: {
+                        wheel: {
+                            enabled: true,
+                        },
+                        pinch: {
+                            enabled: true
+                        },
+                        mode: 'y',
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    titleMarginBottom: 10,
+                    titleColor: '#6e707e',
+                    //titleFontSize: 14,
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyColor: "#858796",
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    //xPadding: 15,
+                    //yPadding: 15,
+                    displayColors: false,
+                    caretPadding: 10,
+                    callbacks: {
+                        label: function (context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += context.parsed.y;
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                    bottom: 0
+                }
+            },
+            scales: {
+                x: {
+                    //time: {
+                    //    unit: 'month'
+                    //},
+                    gridLines: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    //// x軸顯示幾個值
+                    //ticks: {
+                    //    maxTicksLimit: 6
+                    //},
+                    //maxBarThickness: 25,
+                },
+                y: {
+                    ticks: {
+                        min: 0,
+                        max: @Html.Raw(defect_max),
+                        //maxTicksLimit: 10,
+                        padding: 0,
+                        // Include a dollar sign in the ticks
+                        callback: function (value, index, values) {
+                            return value;
+                        }
+                    },
+                    gridLines: {
+                        color: "rgb(234, 236, 244)",
+                        zeroLineColor: "rgb(234, 236, 244)",
+                        drawBorder: false,
+                        borderDash: [2],
+                        zeroLineBorderDash: [2]
+                    }
+                },
+            },
+
+
+
+        }
+    });
+
+
+    function resetZoom() {
+        myBarChart.resetZoom();
+    }
+
+</script>
+
+
+<!-- ppm與顆數表格下載 -->
+@using (Html.BeginForm("LotPPM_ExportExcel", "Analysis", FormMethod.Post, new { name = "ppmDownloadForm" }))
+{
+    @Html.Hidden("hHtml")
+    @Html.Hidden("input_site")
+    @Html.Hidden("input_lot")
+    @Html.Hidden("input_defect_code")
+}
+
+
+

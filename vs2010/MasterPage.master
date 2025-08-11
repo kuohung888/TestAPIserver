@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#"  AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+
+    <style type="text/css">
+        /* 外層容器固定寬度並置中 */
+        .wrapper {
+            width: 1024px;
+            height:auto;
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh; /* 讓 footer 能靠底部 */
+             background-color:lightcyan;
+        }
+
+        /* 頂部 banner 置中 */
+        .header {
+            text-align: center;
+            padding: 10px 0;
+             background-color:lightcyan;
+        }
+        .header img {
+            max-width: 100%;
+            height: 148px;
+            width: 1010px;
+        }
+
+        /* 左側選單 */
+        .sidebar {
+            float: left;
+            width: 200px;
+            font-size: 14pt;            /* 放大 TreeView 文字 */
+            line-height: 1.4;
+        }
+
+        /* 右側主要內容 */
+        .main {
+            float: right;
+            width: 800px;
+            height:auto;
+            /* 可依需求加上內距 */
+            padding: 10px;
+            background-color:lightcyan;
+        }
+
+        /* 清除浮動後 footer 才會到最底 */
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* 底部版權文字 */
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            background: #f1f1f1;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <!-- Header -->
+            <div class="header">
+                <img src="images/banner.jpg" alt="Banner" />
+            </div>
+
+            <!-- Sidebar + Main Content -->
+            <div class="clearfix">
+                <div class="sidebar">
+                    <asp:TreeView ID="TreeView1" runat="server"
+                        ImageSet="WindowsHelp"
+                        Width="100%"
+                        NodeStyle-Font-Names="Tahoma"
+                        NodeStyle-Font-Size="14pt"
+                        NodeStyle-ForeColor="Black"
+                        HoverNodeStyle-ForeColor="#6666AA"
+                        HoverNodeStyle-Font-Underline="True"
+                        SelectedNodeStyle-BackColor="#B5B5B5"
+                        SelectedNodeStyle-Font-Underline="False">
+                        <Nodes>
+                            <asp:TreeNode Text="陣列">
+                                <asp:TreeNode Text="陣列範例01" NavigateUrl="~/ArrayExamples.aspx" />
+                            </asp:TreeNode>
+                            <asp:TreeNode Text="文字控制項">
+                                <asp:TreeNode Text="註冊範例" NavigateUrl="~/Register.aspx" />
+                                <asp:TreeNode Text="登入範例" NavigateUrl="~/login.aspx" />
+                                <asp:TreeNode Text="密碼強度驗證" NavigateUrl="#" />
+                            </asp:TreeNode>
+                            <asp:TreeNode Text="日期控制項">
+                                <asp:TreeNode Text="訂票範例" NavigateUrl="~/Booking.aspx" />
+                                <asp:TreeNode Text="會議預約"  NavigateUrl="~/Meeting.aspx"/>
+                            </asp:TreeNode>
+
+                             <asp:TreeNode Text="小範例">
+                                <asp:TreeNode Text="學生成績排序" NavigateUrl="~/StudentSorter.aspx" />
+                                <asp:TreeNode Text="樂透電腦選號對獎"  NavigateUrl="~/TaiwanLottery.aspx"/>
+                                <asp:TreeNode Text="讀取CSV檔案"  NavigateUrl="~/readcsv01.aspx"/>
+                            </asp:TreeNode>
+
+                        </Nodes>
+                    </asp:TreeView>
+                </div>
+
+                <div class="main">
+                    
+                    <asp:ContentPlaceHolder ID="PlaceHolder1" runat="server" />
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer>
+                版權吳冠霆所有，翻拷必究!
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

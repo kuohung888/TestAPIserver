@@ -1,0 +1,30 @@
+﻿2024/11/14 13:55:47,  GetHwBinListTable,IP:::1,runtime:4967,"user:?喳???K09865,Kerwin Wu","filterObject:{"pageName":null,"startDate":"2024-11-08 00:00:00","endDate":"2024-11-14 23:59:59","bd":null,"tester":null,"lotId":null,"waferId":null,"testMode":null,"testItem":null,"site":null}"
+2024/12/09 15:45:01,  GetHwBinListTable,IP:::1,runtime:2656,"user:?喳???K09865,Kerwin Wu","filterObject:{"pageName":null,"startDate":"2024-12-03 00:00:00","endDate":"2024-12-09 23:59:59","bd":null,"tester":null,"lotId":null,"waferId":null,"testMode":null,"testItem":null,"site":null}"
+2024/12/09 15:46:50,  GetHwBinListTable,IP:::1,runtime:2707,"user:吳光明,K09865,Kerwin Wu","filterObject:{"pageName":null,"startDate":"2024-12-03 00:00:00","endDate":"2024-12-09 23:59:59","bd":null,"tester":null,"lotId":null,"waferId":null,"testMode":null,"testItem":null,"site":null}"
+2024/12/26 09:05:11,  GetHwBinListTable,IP:::1,runtime:1501,"user:?喳???K09865,Kerwin Wu","filterObject:{"pageName":null,"startDate":"2024-12-20 00:00:00","endDate":"2024-12-26 23:59:59","bd":null,"tester":null,"lotId":null,"waferId":null,"testMode":null,"testItem":null,"site":null}"
+2024/12/26 09:05:54,Histogram combine - start,IP:::1,runtime:1161,"user:K09865","filterObject:{"startDate":"2024-12-20 00:00:00","endDate":"2024-12-26 23:59:59","bd":[],"tester":null,"lotId":["50NFUVB014","50NFUMB004"],"waferId":null,"testMode":null,"testItem":["4_PD_0_CA0_OS:DC(ALL_H2)"],"site":null,"xMin":null,"xMax":null,"binWidth":null,"newSpecStd":"3"}"
+2024/12/27 10:58:30,'GetBD Exception error:System.IO.FileLoadException: 無法載入檔案或組件 'System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 或其相依性的其中之一。 找到的組件資訊清單定義與組件參考不符。 (發生例外狀況於 HRESULT: 0x80131040)
+檔案名稱: 'System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+   於 ACT_DASHBOARD_WEB.Models.WebApiClient.<MongoGetAllAsync>d__11.MoveNext()
+   於 System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   於 ACT_DASHBOARD_WEB.Models.WebApiClient.MongoGetAllAsync(MongoGetAll mongoGetAll)
+   於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetBD(FilterObject filterObject) 於 D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 109
+
+=== 繫結前狀態資訊 ===
+記錄: DisplayName = System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+記錄: Appbase = file:///D:/Kerwin_handover/ACT_dashboard網頁/程式/git_clone_project/act-analysis-tool_web/ACT_DASHBOARD_WEB/
+記錄: 初始 PrivatePath = D:\Kerwin_handover\ACT_dashboard網頁\程式\git_clone_project\act-analysis-tool_web\ACT_DASHBOARD_WEB\bin
+正在呼叫組件 : ACT_DASHBOARD_WEB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null。
+===
+記錄: 此繫結在 default 載入內容中開始。
+記錄: 正在使用應用程式組態檔: D:\Kerwin_handover\ACT_dashboard網頁\程式\git_clone_project\act-analysis-tool_web\ACT_DASHBOARD_WEB\web.config
+記錄: 使用主機組態檔: C:\Users\K09865\OneDrive\文件\IISExpress\config\aspnet.config
+記錄: 從 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\config\machine.config 使用電腦組態檔。
+記錄: 原則後參考: System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+記錄: 正在嘗試從新的 URL file:///C:/Users/K09865/AppData/Local/Temp/Temporary ASP.NET Files/vs/2fd1083f/5cb4f717/System.Net.Http.Formatting.DLL 下載。
+記錄: 正在嘗試從新的 URL file:///C:/Users/K09865/AppData/Local/Temp/Temporary ASP.NET Files/vs/2fd1083f/5cb4f717/System.Net.Http.Formatting/System.Net.Http.Formatting.DLL 下載。
+記錄: 正在嘗試從新的 URL file:///D:/Kerwin_handover/ACT_dashboard網頁/程式/git_clone_project/act-analysis-tool_web/ACT_DASHBOARD_WEB/bin/System.Net.Http.Formatting.DLL 下載。
+警告: 比較組件名稱發現不符項目: 組建編號
+錯誤: 無法完成組件的安裝 (hr = 0x80131040)。已終止探查。
+

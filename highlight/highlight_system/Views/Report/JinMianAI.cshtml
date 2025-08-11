@@ -1,0 +1,287 @@
+﻿@using System.Data
+@model DataTable
+@{
+    ViewBag.Title = "金面汙染AI辨識結果";
+
+    DataTable dt_AIResult = ViewData["dt_AIResult"] as DataTable;
+}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">@ViewBag.Title</h1>
+
+<p class="mb-4">
+    1. 金面汙染片狀/條狀汙染AI辨識結果<br>
+    2. 人員複判結果更改<br>
+</p>
+
+
+<div class="card shadow mb-4 p-3">
+    <!-- Topbar Search -->
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" name="search_form" method="post">
+        <!-- <div class="row">
+
+            <div class="col-auto input-group  mb-1">
+                <label class="">圖號</label>
+                <input id="input_DWG" name="input_DWG" type="text" class="form-control bg-light border-1 small input-group-append ml-1" placeholder="" value="@ViewBag.DWG">
+            </div>
+
+            <div class="col-auto input-group  mb-1">
+                <label class="">料號板序</label>
+                <input id="input_model_num" name="input_model_num" type="text" class="form-control bg-light border-1 small input-group-append ml-1" placeholder="" value="@ViewBag.ModelNum">
+            </div>
+
+            <div class="col-auto input-group  mb-1">
+                <label class="">批號</label>
+                <input id="input_lot" name="input_lot" type="text" class="form-control bg-light border-1 small input-group-append ml-1" placeholder="" value="@ViewBag.Lot">
+            </div>
+        </div>-->
+
+        <div class="row mt-1">
+
+            <div class="col-auto mb-1">
+                <div class="input-group">
+                    <label class="mr-1">日期</label>
+                    <input id="input_StartDate" name="input_StartDate" type="text" class="form-control bg-light border-1 small" placeholder="yyyy-MM-dd HH:mm" aria-label="Search" aria-describedby="basic-addon2" value="@ViewBag.StartDate">
+                    <label class="align-items-center pl-1 pr-1">至 </label>
+                    <input id="input_EndDate" name="input_EndDate" type="text" class="form-control bg-light border-1 small" placeholder="yyyy-MM-dd HH:mm" aria-label="Search" aria-describedby="basic-addon2" value="@ViewBag.EndDate">
+                </div>
+            </div>
+
+            <div class="col-auto input-group  mb-1">
+                <button class="btn btn-secondary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                    <span class="text">查詢</span>
+                </button>
+            </div>
+
+            <div class="btn-group btn-group-toggle mr-auto ml-3" id="panel_strip_radio" data-toggle="buttons" onchange="panel_strip_radio_changed();">
+
+                @if (ViewBag.PanelStrip == 0)
+                {
+                    <label class="btn btn-outline-primary">
+                        <input class="form-check-input" type="radio" name="panel_strip_options" id="option1" autocomplete="off" value="0" checked>片狀 / 條狀
+                    </label>
+                }
+                else
+                {
+                    <label class="btn btn-outline-primary">
+                        <input class="form-check-input" type="radio" name="panel_strip_options" id="option1" autocomplete="off" value="0">片狀 / 條狀
+                    </label>
+                }
+
+                @if (ViewBag.PanelStrip == 1)
+                {
+                    <label class="btn btn-outline-primary">
+                        <input class="form-check-input" type="radio" name="panel_strip_options" id="option2" autocomplete="off" value="1" checked> 片狀
+                    </label>
+                }
+                else
+                {
+                    <label class="btn btn-outline-primary">
+                        <input class="form-check-input" type="radio" name="panel_strip_options" id="option2" autocomplete="off" value="1"> 片狀
+                    </label>
+                }
+                @if (ViewBag.PanelStrip == 2)
+                {
+                    <label class="btn btn-outline-primary">
+                        <input class="form-check-input" type="radio" name="panel_strip_options" id="option3" autocomplete="off" value="2" checked> 條狀
+                    </label>
+                }
+                else
+                {
+                    <label class="btn btn-outline-primary">
+                        <input class="form-check-input" type="radio" name="panel_strip_options" id="option3" autocomplete="off" value="2"> 條狀
+                    </label>
+                }
+            </div>
+
+        </div>
+    </form>
+
+</div>
+
+
+<!-- DataTales AI判斷結果 -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="row align-items-center">
+            <div class="col-auto mr-auto">
+                <h5 class="m-0 font-weight-bold text-primary">查詢列表</h5>
+            </div>
+
+            <div class="col">
+                <button id="re_judge_btn" class="btn btn-info " type="button" onclick="clickUpdate()">
+                    <span class="text">更新</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="dataTable_au_pollution_detect" style="width:100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>片狀</th>
+                        <th>條狀</th>
+                        <th>查看圖檔</th>
+                        <th>AI辨識結果</th>
+                        <th>人員辨識結果</th>
+                        <!-- <th>圖號</th>
+                        <th>料號板序</th>-->
+                        <th>批號</th>
+                        <th>板號</th>
+                        <th>日期時間</th>
+                        <th style="display:none;">複判</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow dr in dt_AIResult.Rows)
+                    {
+                        <tr>
+                            @{
+                                <!-- 取得的path範例: D:\\ASEKH\\K09865\\疊圖系統\\highlight_system\\highlight_system\\img\\au_defect_fail_single_panel\\L123456789_金面汙染_Total_P87.png-->
+                                string path = dr["path"].ToString();
+                                if (string.IsNullOrEmpty(path))
+                                {
+                                    ViewBag.previewImg = "";
+                                }
+                                else
+                                {
+                                    ViewBag.previewImg = path.Substring(path.IndexOf("\\img"));
+                                }
+                            }
+                            <!-- 為了每一個row個別畫圖並下載，需取得個別row的資訊，故存在value中並由tableItemDownload()提交畫圖下載 -->
+                            <td>
+                                <label class="btn" style="height: 100px;width: 100%;border:hidden;" for="panel-@dr["lot_num"]-@dr["panel_num"]">
+                                    <input type="checkbox" class="btn btn-check" style="height: 30px;width: 30px;" name="options-outlined" id="panel-@dr["lot_num"]-@dr["panel_num"]" autocomplete="off" onclick="checkStatus(this)">
+                                </label>
+                            </td>
+                            <td>
+                                <label class="btn" style="height: 100px;width: 100%;border:hidden;" for="strip-@dr["lot_num"]-@dr["panel_num"]">
+                                    <input type="checkbox" class="btn-check" style="height: 30px;width: 30px;" name="options-outlined" id="strip-@dr["lot_num"]-@dr["panel_num"]" autocomplete="off" onclick="checkStatus(this)">
+                                </label>
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="@Url.Action("Image", "Report", new { imgSrc = dr["path"], webpage = "JinMianAI" })" class="btn btn-warning btn-circle" target="_blank" style="height:100px">
+                                    <img src="@(Url.Content("~" + ViewBag.previewImg))" alt="@dr["path"]" style="height:100px; width:110px">
+                                </a>
+                            </td>
+                            <td>@(dr["ai_defect_class"].ToString() == "panel" ? "片狀" : "條狀")</td>
+                            @if(string.IsNullOrEmpty(dr["pe_defect_class"].ToString()))
+                            {
+                            <td></td>
+                            }else
+                            {
+                            <td>@(dr["pe_defect_class"].ToString() == "panel" ? "片狀" : "條狀")</td>
+                            }
+
+                            <!-- <td>@dr["DWG"]</td>
+                            <td>@dr["model_num"]</td>-->
+                            <td>@dr["lot_num"]</td>
+                            <td>@dr["panel_num"]</td>
+                            <!-- 因資料庫查出的來日期格式會自動轉成"2022/1/12 下午 05:10"導致排序有問題，故在此處轉換格式為"2022/01/12 17:10:00" -->
+                            <td>@DateTime.Parse(dr["datetime"].ToString()).ToString("yyyy/MM/dd HH:mm:ss")</td>
+                            <td style="display:none;"></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/js/demo/datatables-au-pollution-detect.js")
+
+
+<script type="text/javascript">
+    setTimeout(function () { start_datatable_au_pollution()   }, 500);
+    //function start_func() {
+    //    console.log("進入start_func()");
+    //    $('#panel_strip_radio  input').on('change', function () {
+    //        alert("進入change");
+            
+    //    });
+    //}
+
+    function panel_strip_radio_changed() {
+
+        var panelStripVar = $('input[name=panel_strip_options]:checked').val();
+
+        //表單提交
+        $("form[name='search_form']").submit();
+
+    }
+
+    function checkStatus(objButton) {
+        //console.log(objButton.id);
+        var table = $('#dataTable_au_pollution_detect').DataTable();
+        //console.log(table);
+        //var d = table.row(this).data();
+        //console.log(d);
+    }
+
+    function clickUpdate() {
+        console.log("進入更新按鈕");
+        var table = $('#dataTable_au_pollution_detect').DataTable();
+
+
+        var tableToList = [];
+
+        var _content = table.rows().data();
+        //console.log(_content);
+        //console.log(_content.length);
+        //var _tableContent = new Array();
+
+        for (var i = 0; i < _content.length; i++) {
+            //_tableContent[i] = _content[i];
+            var lot = table.row(i).data()[5]
+            console.log(lot);
+            var panel_num = table.row(i).data()[6]
+            console.log(panel_num);
+            var datetime_str = table.row(i).data()[7]
+            console.log(datetime_str);
+
+            // 片狀勾選框的ID
+            var panelCheckboxId = "panel-" + lot + "-" + panel_num;
+            // 條狀勾選框的ID
+            var stripCheckboxId = "strip-" + lot + "-" + panel_num;
+
+            var reJudge = "";
+            if ($('#' + panelCheckboxId).is(':checked')) {
+                reJudge = "panel";
+            }
+            if ($('#' + stripCheckboxId).is(':checked')) {
+                reJudge = "strip";
+            }
+            if (reJudge == "") {continue;}
+
+            tableToList.push(lot + "-" + panel_num + "-" + datetime_str + "-" + reJudge);
+
+        }
+        //console.log(_tableContent[0][0]);
+
+
+        //var JSONTable = JSON.stringify(_content);
+        var panelStripVar = $('input[name=panel_strip_options]:checked').val();
+
+        $("input[name='input_StartDate']").val($("#input_StartDate").val());
+        $("input[name='input_EndDate']").val($("#input_EndDate").val());
+        $("input[name='panel_strip_options']").val(panelStripVar);
+        $("input[name='au_result_table']").val(tableToList);
+
+        //表單提交
+        $("form[name='updateAIResultForm']").submit();
+    }
+
+</script>
+
+
+@using (Html.BeginForm("updateAIResult", "Report", FormMethod.Post, new { name = "updateAIResultForm" }))
+{
+    @Html.Hidden("input_StartDate")
+    @Html.Hidden("input_EndDate")
+    @Html.Hidden("panel_strip_options")
+    @Html.Hidden("au_result_table")
+}

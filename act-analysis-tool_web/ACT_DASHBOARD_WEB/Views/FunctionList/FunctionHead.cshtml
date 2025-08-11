@@ -1,0 +1,1230 @@
+﻿
+@{
+    ViewBag.Title = "Function";
+
+    DateTime start_time = DateTime.Now.Date.AddDays(-6); // DateTime.Now.Date.AddDays(-6);
+    DateTime end_time = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
+
+    ViewBag.StartDate = start_time.ToString("yyyy-MM-dd HH:mm:ss");
+    ViewBag.EndDate = end_time.ToString("yyyy-MM-dd HH:mm:ss");
+}
+
+<style>
+    /* Custom styles to enable scrolling */
+    .multiselect-container {
+        max-height: 200px; /* Adjust as needed */
+        overflow-y: auto;
+    }
+
+    .fixed-header {
+        position: fixed; /* 固定在視口位置 */
+        top: 0; /* 距離上邊界 0px */
+        left: 0; /* 距離左邊界 0px */
+        width: 100%; /* 寬度為 100% */
+        background-color: lightgray; /* 背景色 */
+        border-bottom: 1px solid #ddd; /* 下邊框 */
+        padding: 10px; /* 內邊距 */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 影子效果 */
+        z-index: 10; /* 確保在其他內容之上 */
+    }
+</style>
+
+<!-- Page Heading -->
+@*<h1 class="h3 mb-2 text-gray-800">@ViewBag.Title</h1>*@
+<div class="card shadow mb-3 p-3 pl-5 fixed-header" style="margin-top:55px">
+    <!-- Topbar Search -->
+    <form class=" " name="search_form" method="post">
+        <div class="row mr-2">
+
+            <div class="col-3 mb-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Function</span>
+                    </div>
+                    <select id="select_Function" name="select_Function" class=" form-control" onchange="onChangeFunction(this)">
+                        <option value="hw_bin_list">Bin code list - HW bin list</option>
+                        <option value="histogram">Histogram - Combine</option>
+                        @*<option>HW FAIL PPM</option>*@
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="col-3 mb-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Start Date</span>
+                    </div>
+                    <input id="input_StartDate" name="input_StartDate" type="datetime-local" class="form-control bg-light border-1 small" placeholder="yyyy-MM-dd HH:mm:ss" value="@ViewBag.StartDate" onchange="onChangeDate()">
+                </div>
+            </div>
+
+            <div class="col-3 mb-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">End Date</span>
+                    </div>
+                    <input id="input_EndDate" name="input_EndDate" type="datetime-local" class="form-control bg-light border-1 small" placeholder="yyyy-MM-dd HH:mm:ss" value="@ViewBag.EndDate" onchange="onChangeDate()">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row mr-2">
+
+            <div class="col-3 mb-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">BD</span>
+                    </div>
+                    <select id="select_BD" name="select_BD" class=" form-control" @*onchange="onChangeBD()"*@></select>
+                </div>
+            </div>
+
+            <div class="col-3 mb-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Tester</span>
+                    </div>
+                    <select multiple="multiple" id="select_Tester" name="select_Tester" class=" form-control" @*onchange="onChangeTester()"*@></select>
+                </div>
+            </div>
+
+            <div class="col-3 mb-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Lot ID</span>
+                    </div>
+                    <select multiple="multiple" id="select_Lot" name="select_Lot" class=" form-control" @*onchange="onChangeLotId()"*@></select>
+                </div>
+            </div>
+
+            <div class="col-3 mb-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Wafer ID</span>
+                    </div>
+                    <select multiple="multiple" id="select_Wafer" name="select_Wafer" class=" form-control" onchange="onChangeWaferId()" disabled="disabled"></select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mr-2">
+
+            <div class="col-3 mb-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Test Mode</span>
+                    </div>
+                    <select multiple="multiple" id="select_Test_mode" name="select_Test_mode" class=" form-control" onchange="onChangeTestMode()"></select>
+                </div>
+            </div>
+
+            <div class="col-3 mb-1">
+                <div id="select_Test_item_div" class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Test Item</span>
+                    </div>
+                    <select id="select_Test_item" name="select_Test_item" class=" form-control"></select>
+                </div>
+            </div>
+
+            <div class="col-3 mb-1" style="display:none">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Site</span>
+                    </div>
+                    <select multiple="multiple" id="select_Site" name="select_Site" class=" form-control"></select>
+                </div>
+            </div>
+
+
+            <div class="col-3 input-group  mt-1">
+                <button class="btn btn-outline-secondary  w-50" type="button" data-toggle="modal" data-target="#modal-loadLot">
+                    <span class="text">Load Lot File</span>
+                </button>
+            </div>
+
+            <div class="col-3 input-group  mt-1">
+                <button class="btn btn-primary w-50" type="button" onclick="onClickStart()">
+                    <span class="text">Start</span>
+                </button>
+            </div>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+<!-- Loader  -->
+<div class="spinner " style="margin-top:50px;display:none">
+    <div class="center-div">
+        <div class="inner-div d-flex justify-content-center">
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+
+<div id="HW_bin_list_view" style="margin-top: 230px ">
+    @Html.Partial("FunctionPart/HwBinListTable")
+</div>
+<div id="Histogram_combine_view" style="margin-top:230px">
+    @Html.Partial("FunctionPart/Histogram_combine")
+</div>
+
+<div id="HW_fail_ppm_view" style="height: 800px; margin-top: 230px">
+    HW FAIL PPM view
+</div>
+
+
+
+
+<!-- modal Load Lot file -->
+<div class="modal fade" id="modal-loadLot">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-dark">輸入批號</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Large textarea -->
+                <div class="mb-3">
+                    <label for="InputLotTextarea" class="form-label text-dark">Input Lot:</label>
+                    <textarea class="form-control " id="InputLotTextarea" rows="6" placeholder=""></textarea>
+                </div>
+                @*<label class="ml-3 mt-1 text-info">請確實填入"批號"才能進行計算</label>*@
+                @*<div id="inputDiv" class="border m-3 focus-div" tabindex="0" style="height:500px;overflow: auto;">
+                        <table id="fillInDataTable" class="table table-bordered table-hover">
+                            <tbody>
+                                <!-- 第一行留作用户输入 -->
+                                <tr id="inputRow">
+                                    <td>
+                                        <input class="col-10" type="text" id="inputCol1">
+                                        <button type="button" class="btn btn-sm btn-info" onclick="addLot()">輸入</button>
+                                    </td>
+                                </tr>
+                                <!-- Table body will be filled dynamically -->
+                            </tbody>
+                        </table>
+                    </div>*@
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button id="inputModalClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="inputModalSave" type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- Messege Modal -->
+<div class="portfolio-modal modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">訊息</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body align-self-center">
+                <h4 class=" " id="modalMsg">請選擇 'Test Item'</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary " data-dismiss="modal" id="">確定</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.Messege modal -->
+<!-- Include the flatpickr library -->
+@Styles.Render("~/vendor/flatpickr/flatpickr.min.css")
+@Scripts.Render("~/vendor/flatpickr/flatpickr.js")
+
+<script>
+    var selectedBDValues = [];
+    var selectedTesterValues = [];
+    var selectedLotValues = [];
+    var selectedFunction = "";
+
+    window.addEventListener('DOMContentLoaded', event => {
+        //畫面執行中circle
+        $('.spinner').css('display', 'block');
+
+        var userAccount = getCookie("userAccount");
+        if (userAccount == null) {
+            console.log('沒有登錄資訊');
+            location.href = '@Url.Content("~/Login/Login")';
+        } else {
+           // _Layout.cshtml 的 #navbar_userid 顯示 USER Name
+            $("#topnav_right_userid").html('Hi ' + userAccount.split(",")[0]);
+        }
+
+        var tryGetResult = TryToGetAPIData();
+
+
+
+    });
+
+    function pageInit() {
+
+        initializeMultiselect();
+
+        onChangeFunction();
+
+        barChartInit();
+
+        document.getElementById('InputLotTextarea').placeholder = '21NFQAB007\n21NFQAB006\n21NFQAB005\n...';
+
+        // 在modal关闭时清除 DataTable 内容
+        $('#modal-loadLot').on('hidden.bs.modal', function () {
+            // 清除表格内容，除了第一行
+            $('#fillInDataTable tbody tr:not(:first)').remove();
+
+            // 清空第一行的输入框值
+            $('#fillInDataTable tbody tr:first').find('input').val('');
+        });
+
+        // 輸入modal表格粘贴事件
+        $('#fillInDataTable').on('paste', function (event) {
+            var clipboardData = event.originalEvent.clipboardData || window.clipboardData;
+            var pastedData = clipboardData.getData('text');
+
+            // 解析粘贴的数据并插入到表格中
+            var rows = pastedData.split('\n');
+            var table = document.getElementById('fillInDataTable');
+
+            // 檢查欄位數是否為 2，如果不是，則不觸發paste事件
+            if (rows.length > 0) {
+                var columns = rows[0].split('\t'); // 假設是以 Tab 分隔的欄位
+
+                if (columns.length !== 1) {
+                    return; // 欄位數不為 2，退出函式
+                }
+            }
+
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].split('\t'); // 将每一行拆分成单元格
+                if (cells.length !== 1) continue;
+                var newRow = table.insertRow(); // 插入新的表格行
+
+                for (var j = 0; j < cells.length; j++) {
+                    var newCell = newRow.insertCell(); // 插入新的单元格
+                    if (cells[j].trim() === "") continue;
+                    newCell.textContent = cells[j]; // 设置单元格内容
+                }
+            }
+
+            // 阻止默认粘贴行为
+            return false;
+        });
+
+        $('#modal-loadLot').on('hidden.bs.modal', function () {
+            $('#InputLotTextarea').val('');
+        });
+
+        HwBinTableInit();
+    }
+
+
+    flatpickr("#input_StartDate", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i:S", // 日期格式
+        defaultDate: "@ViewBag.StartDate", // 默认日期时间
+        time_24hr: true, // 24小时制
+        enableSeconds: true,        // 启用秒数选择
+        seconds: true // 显示秒数
+    });
+    flatpickr("#input_EndDate", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i:S", // 日期格式
+        defaultDate: "@ViewBag.EndDate", // 默认日期时间
+        time_24hr: true, // 24小时制
+        enableSeconds: true,        // 启用秒数选择
+        seconds: true // 显示秒数
+    });
+
+    var loadLots = [];
+    // 輸入modal儲存事件
+    document.getElementById('inputModalSave').addEventListener('click', function () {
+
+        //畫面執行中circle
+        $('.spinner').css('display', 'block');
+
+        //// 获取表格1和表格2的引用
+        //var table1 = document.getElementById('fillInDataTable');
+        ////var table2 = $('#productTable').DataTable();
+
+        //// 获取表格1中所有行
+        //var rows = table1.getElementsByTagName('tr');
+
+        //loadLots = [];
+
+        //// 遍历表格1的每一row，排除標題列及第一列
+        //for (var i = 1; i < rows.length; i++) {
+        //    var cells = rows[i].getElementsByTagName('td');
+        //    loadLots.push(cells[0].innerHTML.replace(/\r/g, ''));
+        //}
+
+        // 获取 textarea 元素
+        const textarea = document.getElementById('InputLotTextarea');
+        // 读取 textarea 的值
+        const text = textarea.value.trim();
+        // 初始化空数组
+        loadLots = [];
+        // 按换行符分割文本
+        const lines = text.split('\n');
+        lines.forEach(line => {
+            // 去掉行首尾的空白字符，并确保不是空行
+            const trimmedLine = line.trim();
+            if (trimmedLine) {
+                loadLots.push(trimmedLine);
+            }
+        });
+
+        // 模拟点击按钮
+        document.getElementById('inputModalClose').click();
+
+        console.log('loadLots:');
+        console.log(loadLots);
+
+        onSaveLoadLotFile();
+    });
+
+
+    // 判斷使用者輸入的圖號及料號版序，加入表格中
+    function addLot() {
+
+        var col1 = document.getElementById('inputCol1').value.trim();
+
+        //console.log('col1:' + col1);
+        //console.log('col2:' + col2);
+
+        if (col1 === "") {
+            console.log('批號為空');
+            document.getElementById('inputCol1').focus();
+            return;
+        }
+
+        var table = document.getElementById('fillInDataTable');
+        var newRow = table.insertRow(); // 插入新的表格行
+        var cells = [col1];
+        for (var j = 0; j < cells.length; j++) {
+            var newCell = newRow.insertCell(); // 插入新的单元格
+            if (cells[j].trim() === "") continue;
+            newCell.textContent = cells[j]; // 设置单元格内容
+        }
+
+    }
+
+
+    function initializeMultiselect() {
+        var selectedValue = document.getElementById('select_Function').value;
+        //console.log(`functionName:${selectedValue}`);
+
+
+        // 變更 TP 、Test item 單多選
+        if (selectedValue == 'histogram') {
+            //console.log(`selectedValue:${selectedValue}`);
+
+            // TP 、Test item 皆單選
+            //$('#select_BD').append('<option value="" selected disabled></option>');
+            $('#select_BD').multiselect('destroy');
+            document.getElementById('select_BD').removeAttribute('multiple');
+            $('#select_BD').multiselect({
+                enableFiltering: true,
+                onDropdownHide: function (event) {
+                    onChangeBD();
+                }
+            });
+
+
+            $('#select_Test_item_div').show();
+            $('#select_Test_item').multiselect('destroy');
+            document.getElementById('select_Test_item').removeAttribute('multiple');
+            $('#select_Test_item').multiselect({
+                enableFiltering: true
+            });
+
+        } else if (selectedValue == 'hw_bin_list') {
+            // TP多選 、Test item 隱藏
+            $('#select_BD').multiselect('destroy');
+            document.getElementById('select_BD').setAttribute('multiple', 'multiple');
+            $('#select_BD').multiselect({
+                enableFiltering: true,
+                includeSelectAllOption: true,
+                onDropdownHide: function (event) {
+                    onChangeBD();
+                }
+            });
+
+            $('#select_Test_item_div').hide();
+
+        } else if (selectedValue == 'HW FAIL PPM') {
+            // TP 、Test item 皆多選
+            $('#select_BD').multiselect('destroy');
+            document.getElementById('select_BD').setAttribute('multiple', 'multiple');
+            $('#select_BD').multiselect({
+                enableFiltering: true,
+                includeSelectAllOption: true,
+                onDropdownHide: function (event) {
+                    onChangeBD();
+                }
+            });
+
+            $('#select_Test_item_div').show();
+            $('#select_Test_item').multiselect('destroy');
+            document.getElementById('select_Test_item').setAttribute('multiple', 'multiple');
+            $('#select_Test_item').multiselect({
+                enableFiltering: true,
+                includeSelectAllOption: true
+            });
+
+        } else {
+            $('#select_BD').multiselect('destroy');
+            document.getElementById('select_BD').setAttribute('multiple', 'multiple');
+            $('#select_BD').multiselect({
+                enableFiltering: true,
+                includeSelectAllOption: true,
+                onDropdownHide: function (event) {
+                    onChangeBD();
+                }
+            });
+
+            $('#select_Test_item_div').show();
+            $('#select_Test_item').multiselect('destroy');
+            document.getElementById('select_Test_item').setAttribute('multiple', 'multiple');
+            $('#select_Test_item').multiselect({
+                enableFiltering: true,
+                includeSelectAllOption: true
+            });
+
+        }
+
+        //$('#select_BD').multiselect({
+        //    enableFiltering: true,
+        //    includeSelectAllOption: true
+        //});
+        $('#select_Tester').multiselect('destroy');
+        $('#select_Tester').multiselect({
+            enableFiltering: true,
+            includeSelectAllOption: true,
+            onDropdownHide: function (event) {
+                onChangeTester();
+            }
+        });
+
+        $('#select_Lot').multiselect('destroy');
+        $('#select_Lot').multiselect({
+            enableFiltering: true,
+            includeSelectAllOption: true,
+            onDropdownHide: function (event) {
+                onChangeLotId();
+            }
+        });
+        $('#select_Wafer').multiselect('destroy');
+        $('#select_Wafer').multiselect({
+            enableFiltering: true,
+            includeSelectAllOption: true
+        });
+        $('#select_Test_mode').multiselect('destroy');
+        $('#select_Test_mode').multiselect({
+            enableFiltering: true,
+            includeSelectAllOption: true
+        });
+        //$('#select_Test_item').multiselect({
+        //    enableFiltering: true,
+        //    includeSelectAllOption: true
+        //});
+        $('#select_Site').multiselect('destroy');
+        $('#select_Site').multiselect({
+            enableFiltering: true,
+            includeSelectAllOption: true
+        });
+
+    }
+
+
+    //function onChangeFunction(obj) {
+    //    //var selectedOption = obj.options[obj.selectedIndex].text;
+    //    //var selectedValue = obj.value;
+    //    //console.log('Selected: ' + selectedOption + ' (Value: ' + selectedValue + ')');
+    //    initializeMultiselect();
+
+    //}
+
+    function onClickStart() {
+
+        var userAccount = getCookie("userAccount");
+        if (userAccount == null) {
+            console.log('沒有登錄資訊');
+            location.href = '@Url.Content("~/Login/Login")';
+        } 
+
+        //畫面執行中circle
+        $('.spinner').css('display', 'block');
+
+        var selectedFunction = document.getElementById("select_Function").value;
+
+        if (selectedFunction == "histogram") {
+            onClickStart_HistogramCombine();
+        } else if (selectedFunction == "hw_bin_list") {
+            onClickStart_HwBinListTable();
+        } else if (selectedFunction == "HW FAIL PPM") {
+
+        }
+
+    }
+
+    function onSaveLoadLotFile() {
+
+        // Re-initialize the multiselect with the updated options
+        $('#select_Lot').multiselect({
+            enableFiltering: true,
+            includeSelectAllOption: true
+        });
+
+
+        //const selectElement = document.getElementById("select_Lot");
+        const optionsArray = loadLots;
+
+
+        console.log(`objID:select_Lot optionsArray:${optionsArray}`);
+        console.log(`optionsArray length:${optionsArray.length}`);
+
+        // 清空现有的选项
+        $('#select_Lot').empty();
+
+        // 遍历数组并创建选项
+        optionsArray.forEach(optionText => {
+
+            $('#select_Lot').append('<option value="' + optionText + '" selected>' + optionText + '</option>');
+
+
+        });
+
+        // 重新初始化 Multi-Select 插件
+        $('#select_Lot').multiselect('rebuild');
+
+        // 清空日期
+        $('#input_StartDate').val('');
+        $('#input_EndDate').val('');
+        // 清空BD
+        $('#select_BD').val('');
+        // 清空Tester
+        $('#select_Tester').val('');
+
+        selectedBDValues = [];
+        selectedTesterValues = [];
+        selectedLotValues = $('#select_Lot').val();
+        GetTester();
+        GetBD();
+        GetWaferId();
+        GetTestMode();
+        GetTestItem();
+
+        //畫面執行中circle
+        $('.spinner').css('display', 'none');
+
+    }
+
+    function onChangeFunction() {
+        selectedFunction = document.getElementById("select_Function").value;
+
+        if (selectedFunction == "histogram") {
+            $('#Histogram_combine_view').show();
+            $('#HW_bin_list_view').hide();
+            $('#HW_fail_ppm_view').hide();
+        } else if (selectedFunction == "hw_bin_list") {
+            $('#Histogram_combine_view').hide();
+            $('#HW_bin_list_view').show();
+            $('#HW_fail_ppm_view').hide();
+        } else if (selectedFunction == "HW FAIL PPM") {
+            $('#Histogram_combine_view').hide();
+            $('#HW_bin_list_view').hide();
+            $('#HW_fail_ppm_view').show();
+        }
+        initializeMultiselect();
+
+        onChangeDate();
+        onChangeLotId();
+    }
+
+    function onChangeDate() {
+        //關閉執行中circle
+        $('.spinner').css('display', 'block');
+
+        console.log('onChangeDate()');
+
+        GetBD();
+        GetTester();
+        GetLotId();
+        GetWaferId();
+    }
+
+    function onChangeBD() {
+        //關閉執行中circle
+        $('.spinner').css('display', 'block');
+
+        selectedBDValues = $('#select_BD').val();
+        selectedTesterValues = $('#select_Tester').val();
+        selectedLotValues = $('#select_Lot').val();
+        GetTester();
+        GetLotId();
+        GetWaferId();
+        GetTestMode();
+        if (selectedFunction != "hw_bin_list") {
+            GetTestItem();
+        } else {
+            ////關閉執行中circle
+            //$('.spinner').css('display', 'none');
+        }
+
+        //if (selectedBDValues == '' && selectedTesterValues == '' && selectedLotValues == '') {
+        //    console.log('三個選項皆空');
+        //    $('#select_Test_item').empty();
+        //}
+
+    }
+
+    function onChangeTester() {
+        //關閉執行中circle
+        $('.spinner').css('display', 'block');
+
+        var isChanged = !arraysAreEqual(selectedTesterValues, $('#select_Tester').val());
+        if (isChanged) {
+            selectedTesterValues = $('#select_Tester').val();
+            GetLotId();
+            GetBD();
+            GetWaferId();
+            GetTestMode();
+            if (selectedFunction != "hw_bin_list") {
+                GetTestItem();
+            } else {
+                ////關閉執行中circle
+                //$('.spinner').css('display', 'none');
+            }
+        }
+        else {
+            //關閉執行中circle
+            $('.spinner').css('display', 'none');
+        }
+
+    }
+
+    function onChangeLotId() {
+        //關閉執行中circle
+        $('.spinner').css('display', 'block');
+
+        var isChanged = !arraysAreEqual(selectedLotValues, $('#select_Lot').val());
+
+        if (isChanged) {
+            selectedLotValues = $('#select_Lot').val();
+            GetTester();
+            GetBD();
+            GetWaferId();
+            GetTestMode();
+            if (selectedFunction != "hw_bin_list") {
+                GetTestItem();
+            } else {
+                ////關閉執行中circle
+                //$('.spinner').css('display', 'none');
+            }
+        }
+        else {
+            //關閉執行中circle
+            $('.spinner').css('display', 'none');
+        }
+
+
+    }
+
+    function onChangeWaferId() {
+        //GetTestMode();
+    }
+
+    function onChangeTestMode() {
+        //GetTestItem();
+    }
+
+    function TryToGetAPIData() {
+        
+        var selectedFunction = document.getElementById("select_Function").value;
+
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+        var postData = {
+            pageName: selectedFunction,
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: '',
+            tester: $('#select_Tester').val(),
+            lotId: $('#select_Lot').val(),
+            waferId: '',
+            testMode: '',
+            testItem: '',
+            site: ''
+        };
+
+        $.ajax({
+            url: "/MongoAPI/GetBD",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+
+                //console.log(response);
+                if (response == "Unauthorized") {
+                    alert('Web API Unauthorized. 請重新整理或聯絡工程師');
+                    TryToGetAPIData();
+                    return false;
+                } else {
+                    //console.log('回傳 true');
+                    pageInit();
+                    return true;
+                }
+
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+
+                return false;
+            }
+        });
+    }
+
+
+    function GetBD() {
+
+        var selectedFunction = document.getElementById("select_Function").value;
+
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+        var postData = {
+            pageName: selectedFunction,
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: '',
+            tester: $('#select_Tester').val(),
+            lotId: $('#select_Lot').val(),
+            waferId: '',
+            testMode: '',
+            testItem: '',
+            site: ''
+        };
+
+        console.log('GetBD() postData:');
+
+        $.ajax({
+            url: "/MongoAPI/GetBD",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                //console.log('GetBD response: ' + response);
+
+                //console.log(response);
+                //if (response.split(':')) {
+                //    alert('Web API Unauthorized. 請重新整理或聯絡工程師');
+                //}
+
+                // 更新下拉選單
+                updateSelect("select_BD", JSON.stringify(response));
+
+                //// 更新下一個下拉選單
+                //GetTester();
+
+                initializeMultiselect();
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+
+    function GetTester() {
+
+        var selectedFunction = document.getElementById("select_Function").value;
+
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+
+        var postData = {
+            pageName: selectedFunction,
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: $('#select_BD').val(),
+            tester: '',
+            lotId: $('#select_Lot').val(),
+            waferId: '',
+            testMode: '',
+            testItem: '',
+            site: ''
+        };
+
+        $.ajax({
+            url: "/MongoAPI/GetTester",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                //console.log('GetTester response: ' + response);
+
+                // 更新下拉選單
+                updateSelect("select_Tester", JSON.stringify(response));
+
+                //// 更新下一個下拉選單
+                //GetLotId();
+
+                initializeMultiselect();
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+
+    function GetLotId() {
+
+        var selectedFunction = document.getElementById("select_Function").value;
+
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+        var postData = {
+            pageName: selectedFunction,
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: $('#select_BD').val(),
+            tester: $('#select_Tester').val(),
+            lotId: '',
+            waferId: '',
+            testMode: '',
+            testItem: '',
+            site: ''
+        };
+
+        $.ajax({
+            url: "/MongoAPI/GetLotId",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                //console.log('GetLotId response: ' + response);
+
+                // 更新下拉選單
+                updateSelect("select_Lot", JSON.stringify(response));
+
+                //// 更新下一個下拉選單
+                //GetWaferId();
+
+                initializeMultiselect();
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+
+    function GetWaferId() {
+        var selectedFunction = document.getElementById("select_Function").value;
+
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+        var postData = {
+            pageName: selectedFunction,
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: $('#select_BD').val(),
+            tester: $('#select_Tester').val(),
+            lotId: $('#select_Lot').val(),
+            waferId: '',
+            testMode: '',
+            testItem: '',
+            site: ''
+        };
+
+        $.ajax({
+            url: "/MongoAPI/GetWaferId",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                //console.log('GetWaferId response: ' + response);
+
+                // 更新下拉選單
+                updateSelect("select_Wafer", JSON.stringify(response));
+
+                //// 更新下一個下拉選單
+                //GetTestMode()
+
+                initializeMultiselect();
+
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+
+    function GetTestMode() {
+        var selectedFunction = document.getElementById("select_Function").value;
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+        var postData = {
+            pageName: selectedFunction,
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: $('#select_BD').val(),
+            tester: $('#select_Tester').val(),
+            lotId: $('#select_Lot').val(),
+            waferId: $('#select_Wafer').val(),
+            testMode: '',
+            testItem: '',
+            site: ''
+        };
+
+        $.ajax({
+            url: "/MongoAPI/GetTestMode",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                //console.log('GetTestMode response: ' + response);
+
+                // 更新下拉選單
+                updateSelect("select_Test_mode", JSON.stringify(response));
+
+                //// 更新下一個下拉選單
+                //GetTestItem();
+
+                initializeMultiselect();
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+
+    function GetTestItem() {
+        var selectedFunction = document.getElementById("select_Function").value;
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+        var postData = {
+            pageName: selectedFunction,
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: $('#select_BD').val(),
+            tester: $('#select_Tester').val(),
+            lotId: $('#select_Lot').val(),
+            waferId: $('#select_Wafer').val(),
+            testMode: $('#select_Test_mode').val(),
+            testItem: '',
+            site: ''
+        };
+
+        $.ajax({
+            url: "/MongoAPI/GetTestItem",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                //console.log('GetTestItem response: ' + response);
+
+                // 更新下拉選單
+                updateSelect("select_Test_item", JSON.stringify(response));
+
+                //// 更新下一個下拉選單
+                //GetSite();
+
+                initializeMultiselect();
+
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+
+    function GetSite() {
+
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+        var postData = {
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: $('#select_BD').val(),
+            tester: $('#select_Tester').val(),
+            lotId: $('#select_Lot').val(),
+            waferId: $('#select_Wafer').val(),
+            testMode: $('#select_Test_mode').val(),
+            testItem: '',
+            site: ''
+        };
+
+        $.ajax({
+            url: "/MongoAPI/GetSite",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                //console.log('GetSite response: ' + response);
+
+                // 更新下拉選單
+                updateSelect("select_Site", JSON.stringify(response));
+
+                // 更新下拉選單
+                initializeMultiselect();
+
+                ////關閉執行中circle
+                //$('.spinner').css('display', 'none');
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+
+    function updateSelect(objID, options) {
+        // Destroy the existing multiselect instance
+        //$('#' + objID).multiselect('destroy');
+
+        // Remove all existing options
+        $('#' + objID).empty();
+
+        const optionsArray = options.replace(/[\[\]\"]/g, '').split(',');
+
+        //console.log(`objID:${objID} optionsArray:${optionsArray}`);
+
+
+        if (document.getElementById('select_Function').value == 'histogram' ) {
+            if (objID == 'select_BD' || objID == 'select_Test_item') {
+                $('#' + objID).append('<option value="">None selected</option>');
+            }
+        }
+
+
+
+        // 遍历数组并创建选项
+        optionsArray.forEach(optionText => {
+            //const option = document.createElement('option');
+            //option.value = optionText; // 可以使用optionText作为value
+            //option.text = optionText;  // 可以使用optionText作为显示文本
+            //selectElement.appendChild(option);
+
+            if (objID == 'select_BD') {
+                if (selectedBDValues.includes(optionText)) {
+                    $('#' + objID).append('<option value="' + optionText + '" selected>' + optionText + '</option>');
+                } else {
+                    $('#' + objID).append('<option value="' + optionText + '">' + optionText + '</option>');
+                }
+            } else if (objID == 'select_Tester') {
+                if (selectedTesterValues.includes(optionText)) {
+                    $('#' + objID).append('<option value="' + optionText + '" selected>' + optionText + '</option>');
+                } else {
+                    $('#' + objID).append('<option value="' + optionText + '">' + optionText + '</option>');
+                }
+            } else if (objID == 'select_Lot') {
+                if (selectedLotValues.includes(optionText)) {
+                    $('#' + objID).append('<option value="' + optionText + '" selected>' + optionText + '</option>');
+                } else {
+                    $('#' + objID).append('<option value="' + optionText + '">' + optionText + '</option>');
+                }
+            } else {
+                $('#' + objID).append('<option value="' + optionText + '">' + optionText + '</option>');
+            }
+
+        });
+
+        //// 重新初始化 Multi-Select 插件
+        //$('#' + objID).multiselect('rebuild');
+
+        //// Rebuild the multiselect to include new options
+        //$('#mySelect').multiselect('rebuild');
+
+        //console.log(`objID:${objID} options:`);
+        //console.log(selectElement.options);
+    }
+
+    function arraysAreEqual(arr1, arr2) {
+        if (arr1.length !== arr2.length) return false;
+        return arr1.every((value, index) => value === arr2[index]);
+    }
+
+</script>

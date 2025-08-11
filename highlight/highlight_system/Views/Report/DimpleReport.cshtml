@@ -1,0 +1,165 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    ViewBag.Title = "電測站 Open";
+}
+
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">@ViewBag.Title</h1>
+<p class="mb-4">
+    1. 提供歷史報表查詢<br>
+    2. 將查詢列表全部下載成csv<br>
+    @*<a target="_blank" href="https://datatables.net">official DataTables documentation</a>.*@
+</p>
+
+<div class="card shadow mb-4 p-3">
+    <!-- Topbar Search -->
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="post">
+        <div class="row">
+            <div class="col-auto input-group  mb-1">
+                <label class="">圖號</label>
+                <input id="input_DWG" name="input_DWG" type="text" class="form-control bg-light border-1 small input-group-append ml-1" placeholder="" value="@ViewBag.DWG">
+            </div>
+
+            <div class="col-auto input-group  mb-1">
+                <label class="">料號板序</label>
+                <input id="input_model_num" name="input_model_num" type="text" class="form-control bg-light border-1 small input-group-append ml-1" placeholder="" value="@ViewBag.ModelNum">
+            </div>
+
+            <div class="col-auto input-group  mb-1">
+                <label class="">批號</label>
+                <input id="input_lot" name="input_lot" type="text" class="form-control bg-light border-1 small input-group-append ml-1" placeholder="" value="@ViewBag.Lot">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-auto  mb-1">
+                <div class="input-group">
+                    <label class="mr-1">日期</label>
+                    <input id="input_StartDate" name="input_StartDate" type="text" class="form-control bg-light border-1 small" placeholder="yyyy-MM-dd HH:mm" aria-label="Search" aria-describedby="basic-addon2" value="@ViewBag.StartDate">
+                    <label class="align-items-center pl-1 pr-1">至 </label>
+                    <input id="input_EndDate" name="input_EndDate" type="text" class="form-control bg-light border-1 small" placeholder="yyyy-MM-dd HH:mm" aria-label="Search" aria-describedby="basic-addon2" value="@ViewBag.EndDate">
+                </div>
+            </div>
+
+            <div class="col-auto input-group  mb-1">
+                <button class="btn btn-secondary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                    <span class="text">查詢</span>
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="row align-items-center">
+            <div class="col-auto mr-auto">
+                <h5 class="m-0 font-weight-bold text-primary">查詢列表</h5>
+            </div>
+            <div class="col-auto">
+                <button id="download_btn" class="btn btn-info " type="button" onclick="exportExcel();">
+                    <i class="fas fa-download fa-sm"></i>
+                    <span class="text">下載報表</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>單片畫圖與下載</th>
+                        <th>圖號</th>
+                        <th>料號板序</th>
+                        <th>批號</th>
+                        <th>缺點名稱</th>
+                        <th>板號</th>
+                        <th>日期時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow dr in Model.Rows)
+                    {
+                        <tr>
+                            <!-- 為了每一個row個別畫圖並下載，需取得個別row的資訊，故存在value中並由tableItemDownload()提交畫圖下載 -->
+                            <td>
+                                <button type="button" class="btn btn-secondary btn-circle" value="Dimple-TST-@dr["model_num"]-@dr["lot_num"]-@dr["defect_code"]-@dr["single_panel_num_list"]-@dr["datetime"]" onclick="tableItemDownload(this);" target="_blank">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </td>
+                            <td>@dr["DWG"]</td>
+                            <td>@dr["model_num"]</td>
+                            <td>@dr["lot_num"]</td>
+                            <td>@dr["defect_code"]</td>
+                            <td>@dr["single_panel_num_list"]</td>
+                            <td>@DateTime.Parse(dr["datetime"].ToString()).ToString("yyyy/MM/dd HH:mm:ss")</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- 網頁提示訊息 -->
+@if (ViewBag.Msg != null && ViewBag.Msg != "")
+{
+    <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(ViewBag.Msg));
+        alert(message);
+    </script>
+
+}
+
+<script type="text/javascript">
+    function exportExcel() {
+
+        var sHtml = htmlEncode($("#dataTable")[0].outerHTML);//做html編碼
+
+        $("input[name='hHtml']").val(sHtml);
+        $("input[name='input_StartDate']").val($("#input_StartDate").val());
+        $("input[name='input_EndDate']").val($("#input_EndDate").val());
+        $("input[name='input_model_num']").val($("#input_model_num").val());
+        $("input[name='input_lot']").val($("#input_lot").val());
+
+        //表單提交
+        $("form[name='myForm']").submit();
+    }
+    //↓出自：http://stackoverflow.com/questions/1219860/javascript-jquery-html-encoding
+    function htmlEncode(value) {
+        //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+        //then grab the encoded contents back out.  The div never exists on the page.
+        return $('<div/>').text(value).html();
+    }
+
+    function tableItemDownload(objButton) {
+        $("input[name='info']").val(objButton.value);
+
+        //表單提交
+        $("form[name='drawDownForm']").submit();
+    }
+</script>
+
+@using (Html.BeginForm("Dimple_ExportExcel", "Report", FormMethod.Post, new { name = "myForm" }))
+{
+    @Html.Hidden("hHtml")
+    @Html.Hidden("input_StartDate")
+    @Html.Hidden("input_EndDate")
+    @Html.Hidden("input_model_num")
+    @Html.Hidden("input_lot")
+}
+
+@using (Html.BeginForm("drawAndDownload", "Report", FormMethod.Post, new { name = "drawDownForm" }))
+{
+    @Html.Hidden("info")
+}

@@ -1,0 +1,870 @@
+﻿
+@{
+    ViewBag.Title = "Histogram_combine";
+}
+
+
+
+<div class="card shadow ">
+    <div class="card-header" style="height: 50px">
+
+        <h5 class="card-title font-weight-bold text-secondary">
+            Setting
+        </h5>
+
+        <div class="card-tools">
+            <button id="btnSettingDiv" type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i id="btnSettingDivIcon" class="fas fa-minus"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <form class=" d-sm-inline-block form-inline " name="histogram_combine_form" method="post">
+
+            <div>
+
+                <h5 class="ml-3 text-dark">Measurement Statistic</h5>
+
+                <div class=" border m-1">
+
+                    <div class="row  ml-1 mr-1">
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Min Value</span>
+                                </div>
+                                <input id="input_value_min" name="input_value_min" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Max Value</span>
+                                </div>
+                                <input id="input_value_max" name="input_value_max" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">AVG Value</span>
+                                </div>
+                                <input id="input_avg" name="input_avg" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">STD Value</span>
+                                </div>
+                                <input id="input_std" name="input_std" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row ml-1 mr-1">
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Spec Min</span>
+                                </div>
+                                <input id="input_spec_min" name="input_spec_min" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Spec Max</span>
+                                </div>
+                                <input id="input_spec_max" name="input_spec_max" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Unit</span>
+                                </div>
+                                <input id="input_unit" name="input_unit" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Move In</span>
+                                </div>
+                                <input id="input_move_in" name="input_move_in" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Yield</span>
+                                </div>
+                                <input id="input_yield" name="input_yield" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Fail PPM</span>
+                                </div>
+                                <input id="input_fail_ppm" name="input_fail_ppm" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div>
+
+                <h5 class="ml-3 text-dark">Plot Setting</h5>
+
+                <div class="border m-1 ">
+
+                    <div class="row  ml-1 mr-1">
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">X Min</span>
+                                </div>
+                                <input id="input_x_min" name="input_x_min" type="number" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">X Max</span>
+                                </div>
+                                <input id="input_x_max" name="input_x_max" type="number" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Bin Width</span>
+                                </div>
+                                <input id="input_bin_width" name="input_bin_width" type="number" class="form-control" title="Bin Width must be a positive number">
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Bin Count</span>
+                                </div>
+                                <input id="input_bin_count" name="input_bin_count" type="number" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <h5 class="ml-3 text-dark">Spec Setting</h5>
+
+                <div class="border m-1">
+
+                    <div class="row  ml-1 mr-1">
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text input-group-prepend">New Spec = Avg. ±</span>
+                                </div>
+                                <input id="input_new_std" name="input_new_std " type="number" class="form-control" value="3" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">σ</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Spec Min</span>
+                                </div>
+                                <input id="input_new_spec_min" name="input_new_spec_min" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Spec Max</span>
+                                </div>
+                                <input id="input_new_spec_max" name="input_new_spec_max" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Yield</span>
+                                </div>
+                                <input id="input_new_yield" name="input_new_yield" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-2 mt-1 mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Fail PPM</span>
+                                </div>
+                                <input id="input_new_fail_ppm" name="input_new_fail_ppm" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row ml-1 mt-3">
+
+                <div class="col-auto input-group  mb-1" style="display:none">
+                    <button class="btn btn-outline-secondary" type="button" onclick="">
+                        <span class="text">Download PNG</span>
+                    </button>
+                </div>
+
+                <div class="col-auto input-group  mb-1" style="display:none">
+                    <button class="btn btn-outline-secondary" type="button" onclick="">
+                        <span class="text">Download Raw Data CSV</span>
+                    </button>
+                </div>
+
+                <div class="col-auto input-group  mb-1 ml-1">
+                    <button class="btn btn-outline-primary" type="button" onclick="onClickUpdate_HistogramCombine()">
+                        <span class="text">Update</span>
+                    </button>
+                </div>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+<div class="row justify-content-between mt-2 mb-3">
+    <!-- 圖表區 -->
+    <div class="col-12">
+        <!-- Bar Chart -->
+        <div class=" card shadow">
+
+            <div class="card-header py-2">
+                <div class="row align-items-center">
+
+                    <div class="col-auto">
+                        <h5 id="histogramCombineTitle" class="m-0 font-weight-bold text-secondary">Test Item Chart</h5>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 繪製圖表區塊 -->
+            <div class="card-body">
+                <div class="row justify-content-end">
+                    <div class="chart-bar" style="width:100%;height:400px">
+                        <canvas id="BarChart_histogram_combine" @*style="width:80%;height:200px"*@ class="mr-2"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+@Scripts.Render("~/vendor/chart.js/Chart.min.js")
+@Scripts.Render("~/vendor/chart.js/chartjs-plugin-zoom.min.js")
+@Scripts.Render("~/vendor/chart.js/chartjs-plugin-datalabels.js")
+@Scripts.Render("~/vendor/chart.js/chartjs-plugin-annotation.min.js")
+
+
+<script>
+
+    var labels = [];
+    var dataSpecLine = [];
+    var dataIntervalDeviceCount = [];
+    var dataIntervalPercent = [];
+    var unit = "";
+    var histogramResponseData = "";
+
+    var annotation1 = {
+        type: 'line',
+        xMin: 0,
+        xMax: 0,
+        borderColor: 'rgba(200, 0, 0, 0.7)',
+        borderDash: [6, 6],
+        borderDashOffset: 4,
+        borderWidth: 3,
+        label: {
+            enabled: false,
+            content: (ctx) => '0',
+            backgroundColor: 'rgba(200, 0, 0, 0.5)',
+            position: 'center',
+        },
+    };
+    var annotation2 = {
+        type: 'line',
+        xMin: 0,
+        xMax: 0,
+        borderColor: 'rgba(0, 0, 200, 0.8)',
+        borderDash: [6, 6],
+        borderDashOffset: 0,
+        borderWidth: 3,
+        label: {
+            enabled: false,
+            content: (ctx) => '0',
+            backgroundColor: 'rgba(0, 0, 200, 0.5)',
+            position: 'start',
+        }
+    };
+    var annotation3 = {
+        type: 'line',
+        xMin: 0,
+        xMax: 0,
+        borderColor: 'rgba(0, 0, 200, 0.8)',
+        borderDash: [6, 6],
+        borderDashOffset: 0,
+        borderWidth: 3,
+        label: {
+            enabled: false,
+            content: (ctx) => '0',
+            backgroundColor: 'rgba(0, 0, 200, 0.5)',
+            position: 'start',
+        }
+    };
+    var annotation4 = {
+        type: 'line',
+        xMin: 0,
+        xMax: 0,
+        borderColor: 'rgba(200, 0, 0, 0.7)',
+        borderDash: [6, 6],
+        borderDashOffset: 4,
+        borderWidth: 3,
+        label: {
+            enabled: false,
+            content: (ctx) => '0',
+            backgroundColor: 'rgba(200, 0, 0, 0.5)',
+            position: 'center',
+        }
+    };
+
+    //- BAR CHART  -
+    var BarChartCanvas = document.getElementById("BarChart_histogram_combine").getContext('2d');//$('#lineChartX').get(0).getContext('2d')
+    var BarChart = new Chart(BarChartCanvas, { type: 'bar' })
+
+    function onClickStart_HistogramCombine() {
+
+        var testItem = $('#select_Test_item').val();
+        if (testItem == null || testItem.length < 1) {
+            //關閉執行中circle
+            $('.spinner').css('display', 'none');
+            $('#modalMsg').text(`請選擇 'Test Item'`);
+            $('#msgModal').modal('show');
+            //alert('Please choose one \'Test Item\'');
+            return;
+        }
+
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+        var postData = {
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: $('#select_BD').val(),
+            tester: $('#select_Tester').val(),
+            lotId: $('#select_Lot').val(),
+            waferId: $('#select_Wafer').val(),
+            testMode: $('#select_Test_mode').val(),
+            testItem: $('#select_Test_item').val(),
+            site: $('#select_Site').val(),
+            xMin: document.getElementById("input_x_min").value,
+            xMax: document.getElementById("input_x_max").value,
+            binWidth: document.getElementById("input_bin_width").value,
+            newSpecStd: document.getElementById("input_new_std").value,
+        };
+
+        $.ajax({
+            url: "/MongoAPI/GetHistogramCombineLabelAndValue",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                console.log('GetHistogramCombineLabelAndValue response: ');
+                console.log(response);
+
+                labels = response.histogramLabel;
+                dataIntervalPercent = response.histogramData;
+                unit = response.unit;
+
+                fillInput(response);
+
+                dataIntervalDeviceCount = response.histogramDataDeviceCount;
+                dataIntervalPercent = response.histogramData;
+                drawHistogramCombineBarChart(response.histogramLabel, response.histogramDataDeviceCount, response.specMin, response.specMax, response.newSpecMin, response.newSpecMax, response.histogramSpecLabel);
+
+                histogramResponseData = response;
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }
+        });
+
+
+    }
+
+    function onClickUpdate_HistogramCombine() {
+        //畫面執行中circle
+        $('.spinner').css('display', 'block');
+
+        //console.log('histogramResponseData: ');
+        //console.log(histogramResponseData);
+
+        if (histogramResponseData.xMin == $('#input_x_min').val() && histogramResponseData.xMax == $('#input_x_max').val() &&
+            histogramResponseData.binWidth == $('#input_bin_width').val() && histogramResponseData.newSpecStd == $('#input_new_std').val()) {
+
+            // 為了讓使用者知道按了 'update' 後有反應，讓loading圖案至少轉0.1秒
+            setTimeout(function () {
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }, 100);
+
+            return;
+        }
+
+        if (parseFloat($('#input_x_min').val()) > parseFloat($('#input_x_max').val())) {
+            console.log("input_x_min:" + $('#input_x_min').val());
+            console.log("input_x_max:" + $('#input_x_max').val());
+            $('#modalMsg').text(`X Min 必須小於 X Max`);
+            $('#msgModal').modal('show');
+            $('.spinner').css('display', 'none');
+            return;
+        }
+        if (parseFloat($('#input_bin_width').val()) < 0 || parseFloat($('#input_bin_width').val())==0 ) {
+            $('#modalMsg').text(`Bin Width 必須大於0`);
+            $('#msgModal').modal('show');
+            $('.spinner').css('display', 'none');
+            return;
+        }
+        
+        var start = new Date(document.getElementById("input_StartDate").value);
+        var end = new Date(document.getElementById("input_EndDate").value);
+
+        var postData = {
+            startDate: formatDate(start),
+            endDate: formatDate(end),
+            bd: $('#select_BD').val(),
+            tester: $('#select_Tester').val(),
+            lotId: $('#select_Lot').val(),
+            waferId: $('#select_Wafer').val(),
+            testMode: $('#select_Test_mode').val(),
+            testItem: $('#select_Test_item').val(),
+            site: $('#select_Site').val(),
+            xMin: document.getElementById("input_x_min").value,
+            xMax: document.getElementById("input_x_max").value,
+            binWidth: document.getElementById("input_bin_width").value,
+            newSpecStd: document.getElementById("input_new_std").value,
+        };
+
+        $.ajax({
+            url: "/MongoAPI/GetRecalculationHistogramCombineLabelAndValue",
+            type: 'POST',
+            //timeout: 5000, // 设置超时时间为5秒
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                console.log('GetRecalculationHistogramCombineLabelAndValue response: ');
+                console.log(response);
+
+                labels = response.histogramLabel;
+                dataIntervalDeviceCount = response.histogramDataDeviceCount;
+                dataIntervalPercent = response.histogramData;
+                unit = response.unit;
+
+                fillInput(response);
+
+                drawHistogramCombineBarChart(response.histogramLabel, response.histogramDataDeviceCount, response.specMin, response.specMax, response.newSpecMin, response.newSpecMax, response.histogramSpecLabel);
+
+                histogramResponseData = response;
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX error:', xhr, status, error);
+                if (status === "timeout") {
+                    console.log("请求超时！");
+                }
+                //關閉執行中circle
+                $('.spinner').css('display', 'none');
+            }
+        });
+
+
+    }
+
+
+    function barChartInit() {
+
+        var showValuesPlugin = {
+            id: 'showLineValues',
+            afterDatasetsDraw: function (chart) {
+                var ctx = chart.ctx;
+                chart.data.datasets.forEach(function (dataset, i) {
+                    if (dataset.type === 'bar') {
+                        var meta = chart.getDatasetMeta(i);
+                        if (!meta.hidden) {
+                            meta.data.forEach(function (element, index) {
+                                // 繪製數值
+                                //var dataString = dataset.data[index]+'%'; // 保留兩位小數
+                                var dataString = dataset.data[index];
+                                ctx.fillStyle = '#000000';
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
+                                ctx.font = '12px Arial';
+                                ctx.fillText(dataString, element.x, element.y - 2);
+                            });
+                        }
+                    }
+                });
+            }
+        };
+
+        var barChartOptions = {
+            responsive: true, // 响应式设计
+            maintainAspectRatio: false, // 不保持宽高比
+            plugins: {
+                annotation: {
+                    annotations: [
+                        //annotation1
+                    ]
+                },
+                title: {
+                    display: true,
+                    text: 'Chart Title',
+                    font: {
+                        size: 16 // 可以設定標題字體大小
+                    },
+                    padding: {
+                        top: 5,
+                        bottom: 5
+                    }
+                },
+                datalabels: {
+                    display: true,
+                    color: '#000', // Label color
+                    anchor: 'end',
+                    align: 'end',
+                    formatter: function (value, context) {
+                        return value.toFixed(2); // Format to two decimal places
+                    }
+                },
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        font: {
+                            size: 14
+
+                        },
+                        generateLabels: function (chart) {
+                            // Custom legend labels to include annotation info
+                            var data = chart.data;
+                            var labels = data.datasets.map(function (dataset, i) {
+                                return {
+                                    text: dataset.label,
+                                    fillStyle: dataset.backgroundColor,
+                                    hidden: !chart.isDatasetVisible(i),
+                                    lineCap: dataset.borderCapStyle,
+                                    lineDash: dataset.borderDash,
+                                    lineDashOffset: dataset.borderDashOffset,
+                                    lineJoin: dataset.borderJoinStyle,
+                                    lineWidth: 0,
+                                    strokeStyle: dataset.borderColor,
+                                    pointStyle: dataset.pointStyle,
+                                    datasetIndex: i
+                                };
+                            });
+
+                            // Add custom annotation info to legend
+                            var annotations = chart.options.plugins.annotation.annotations || [];
+                            annotations.forEach(function (annotation, index) {
+
+                                let labelsWithNewText = labels.filter(label => label.text===annotation.label.content);
+                                //console.log("labelsWithNewText:");
+                                //console.log(labelsWithNewText);
+                                if (labelsWithNewText.length == 0) {
+                                    labels.push({
+                                        text: annotation.label.content,
+                                        fillStyle: 'rgba(0, 0, 0, 0)',
+                                        strokeStyle: annotation.borderColor,
+                                        lineDash: annotation.borderDash, // 使用虚线
+                                        lineWidth: 0,
+                                        lineCap: annotation.borderCapStyle,
+                                        lineJoin: annotation.borderJoinStyle,
+                                        lineWidth: annotation.borderWidth,
+                                        hidden: false
+                                    });
+                                }
+                                
+
+                            });
+
+                            return labels;
+                        }
+                    },
+                    //display: false
+                    align: 'end',
+                },
+                tooltip: {
+                    titleMarginBottom: 10,
+                    titleColor: '#6e707e',
+                    //titleFontSize: 14,
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyColor: "#858796",
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    //xPadding: 15,
+                    //yPadding: 15,
+                    displayColors: false,
+                    caretPadding: 10,
+                    callbacks: {
+                        label: function (context) {
+                            const percent = dataIntervalPercent[context.dataIndex];
+
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ':';
+                            }
+                            if (context.parsed.y !== null) {
+                                //label += parseFloat(context.parsed.y).toFixed(2)+'%';
+                                label += parseInt(context.parsed.y) + '   ';
+                            }
+                            label += ' 比例:' + percent + '%';
+                            return label;
+                        }
+
+                    }
+                }
+            },
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: 5,
+                    right: 5,
+                    top: 5,
+                    bottom: 0
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: `量測值(${unit})`,
+                        font: {
+                            size: 15
+                        }
+                    },
+                    grid: {
+                        display: false,
+                        drawOnChartArea: false,
+                        //drawTicks: false,
+                    },
+                    type: 'category',
+                },
+                y: {
+                    min: 0,
+                    max: 100,
+                    title: {
+                        display: true,
+                        //text: '比例(%)',
+                        text: '顆數',
+                        font: {
+                            size: 15
+                        }
+                    },
+                    ticks: {
+                        min: 0,
+                        //maxTicksLimit: 10,
+                        padding: 0,
+                        callback: function (value, index, values) {
+                            return parseInt(value);
+                        }
+                    },
+                    grid: {
+                        color: "rgb(234, 236, 244)",
+                        zeroLineColor: "rgb(234, 236, 244)",
+                        drawBorder: false,
+                        borderDash: [2],
+                        zeroLineBorderDash: [2]
+                    }
+                },
+
+            },
+            //animation: {
+            //    animation
+            //}
+        };
+        var barChartData = {
+            labels: labels,
+            datasets: [
+                //{
+                //    type: 'bar',
+                //    label: '顆數比例',
+                //    borderColor: '#FF0000',
+                //    backgroundColor: '#58B8EC',
+                //    data: dataIntervalPercent,
+                //    yAxisID: 'y',
+                //},
+                {
+                    type: 'bar',
+                    label: '顆數',
+                    borderColor: '#FF0000',
+                    backgroundColor: '#58B8EC',
+                    data: [],
+                    yAxisID: 'y',
+                    //hidden: true
+                }
+            ],
+        };
+
+        Chart.register(showValuesPlugin);
+        BarChart.data = barChartData;
+        BarChart.options = barChartOptions;
+        BarChart.update();
+
+        if (document.getElementById("btnSettingDivIcon").classList.contains('fa-minus')) {
+            document.getElementById("btnSettingDiv").click();
+        }
+    }
+
+
+    function drawHistogramCombineBarChart(newLabel, newDataDeviceCount, specMin, specMax, newSpecMin, newSpecMax, histogramSpecLabel) {
+        BarChart.data.labels = newLabel;
+        BarChart.data.datasets[0].data = newDataDeviceCount;
+        BarChart.options.plugins.title.text = $('#select_Test_item').val();
+        BarChart.options.scales.x.title.text = `量測值(${unit})`;
+
+        // 使用扩展运算符查找最大值和最小值
+        var maxLabel = Math.max(...newLabel);
+        var minLabel = Math.min(...newLabel);
+
+        //// 输出结果
+        //console.log('最大值:', maxLabel);
+        //console.log('最小值:', minLabel);
+        //console.log('specMin:', parseFloat(specMin));
+        //console.log('specMax:', parseFloat(specMax));
+        //console.log('newSpecMin:', parseFloat(newSpecMin));
+        //console.log('newSpecMax:', parseFloat(newSpecMax));
+
+
+        var finalAnnotation = [];
+
+        annotation1.xMin = histogramSpecLabel[1];// parseFloat(specMin);
+        annotation1.xMax = histogramSpecLabel[1];// parseFloat(specMin);
+        annotation1.label.content = 'Spec';
+        if (parseFloat(specMin) >= minLabel) {
+            finalAnnotation.push(annotation1);
+        }
+        annotation2.xMin = histogramSpecLabel[0]; //parseFloat(newSpecMin);
+        annotation2.xMax = histogramSpecLabel[0]; //parseFloat(newSpecMin);
+        annotation2.label.content = 'New Spec';
+        if (parseFloat(newSpecMin) >= minLabel) {
+            finalAnnotation.push(annotation2);
+        }
+        annotation3.xMin = histogramSpecLabel[3];// parseFloat(newSpecMax);
+        annotation3.xMax = histogramSpecLabel[3];// parseFloat(newSpecMax);
+        annotation3.label.content = 'New Spec';
+        if (parseFloat(newSpecMax) <= maxLabel) {
+            finalAnnotation.push(annotation3);
+        }
+        annotation4.xMin = histogramSpecLabel[2];// parseFloat(specMax);
+        annotation4.xMax = histogramSpecLabel[2];// parseFloat(specMax);
+        annotation4.label.content = 'Spec';
+        if (parseFloat(specMax) <= maxLabel) {
+            finalAnnotation.push(annotation4);
+        }
+
+        //console.log('finalAnnotation:' + finalAnnotation);
+
+        BarChart.options.plugins.annotation.annotations = [];
+        finalAnnotation.forEach(annotation => {
+            BarChart.options.plugins.annotation.annotations.push(annotation);
+        });
+
+        var maxValue = getMax(dataIntervalDeviceCount);
+        var yMax = maxValue + 40;
+        BarChart.options.scales.y.max = yMax;
+        BarChart.update();
+    }
+
+
+    function fillInput(response) {
+        $('#input_spec_min').val(response.specMin);
+        $('#input_spec_max').val(response.specMax);
+        $('#input_unit').val(response.unit);
+        $('#input_value_min').val(response.value_min);
+        $('#input_value_max').val(response.value_max);
+        $('#input_avg').val(response.avg);
+        $('#input_std').val(response.std);
+        $('#input_move_in').val(response.moveIn);
+        $('#input_yield').val(response.yield + '%');
+        $('#input_fail_ppm').val(response.failPpm);
+
+        $('#input_x_min').val(response.xMin);
+        $('#input_x_max').val(response.xMax);
+        $('#input_bin_width').val(response.binWidth);
+        $('#input_bin_count').val(response.binCount);
+
+        $('#input_new_std').val(response.newSpecStd);
+        $('#input_new_spec_max').val(response.newSpecMax);
+        $('#input_new_spec_min').val(response.newSpecMin);
+        $('#input_new_yield').val(response.newYield + '%');
+        $('#input_new_fail_ppm').val(response.newFailPpm);
+
+
+    }
+
+
+</script>

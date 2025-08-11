@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<title>檔案名稱</title>
+</head>
+
+<body>
+
+<div>
+	<table cellspacing="1" cellpadding="3" id="GridView1" style="border:1px Solid Silver; width:47%;border-collapse:collapse">
+		<tr  style="background-color:#E8E8E8;border-color:Silver;border-width:1px;border-style:solid;">
+			<th align="center" style="width:70px;">
+			    <font color="#FF0000">
+			    <input type="checkbox" id="GridView1_SelectAll" onclick="ConnectGridSelectAll('GridView1');" />全選</font>
+			</th>
+			<th scope="col" width="300">檔案名稱</th>
+			<th scope="col" width="120">檔案大小</th>
+		</tr>
+		<tr  style="background-color:White;border-color:Silver;border-width:1px;border-style:solid;vertical-align:top;">
+			<td align="center" style="border-color:#CCCCCC;">
+			<input name="ctl00$MasterBody$DownloadDetail$ctl02$DownloadDetail_ConnectGridCheckbox_1" type="checkbox" id="GridView1_CheckBox1_0" /></td>
+			<td>New Features in CSharp.docx</td><td>101 KB</td>
+		</tr>
+		<tr  style="background-color:White;border-color:Silver;border-width:1px;border-style:solid;vertical-align:top;">
+			<td align="center" style="border-color:#CCCCCC;">
+			<input name="ctl00$MasterBody$DownloadDetail$ctl03$DownloadDetail_ConnectGridCheckbox_2" type="checkbox" id="GridView1_CheckBox1_1" /></td>
+			<td>New Features in VB.docx</td><td>102 KB</td>
+		</tr>
+		<tr  style="background-color:White;border-color:Silver;border-width:1px;border-style:solid;vertical-align:top;">
+			<td align="center" style="border-color:#CCCCCC;">
+			<input name="ctl00$MasterBody$DownloadDetail$ctl04$DownloadDetail_ConnectGridCheckbox_3" type="checkbox" id="GridView1_CheckBox1_2" /></td>
+			<td>XYZ Preview.vsix</td><td>221 MB</td>
+		</tr>
+		<tr  style="background-color:White;border-color:Silver;border-width:1px;border-style:solid;vertical-align:top;">
+			<td align="center" style="border-color:#CCCCCC;">
+			<input name="ctl00$MasterBody$DownloadDetail$ctl05$DownloadDetail_ConnectGridCheckbox_4" type="checkbox" id="GridView1_CheckBox1_3"  /></td>
+			<td>XYZ SDK Preview.zip</td><td>222 MB</td>
+		</tr>
+	</table>
+</div>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+
+
+     function ConnectGridSelectAll(gridId)
+     {
+     if(navigator.userAgent.indexOf('Firefox') == -1)
+     {
+         var table = document.getElementById(gridId);
+         for (var i = 1; i < table.rows.length - 0; i++)
+         {
+             table.rows[i].cells[0].children[0].checked = document.getElementById('GridView1_SelectAll').checked;
+         }
+     }
+     else {
+         var table = document.getElementById(gridId);
+         for (var i = 0; i < table.rows.length; i++)
+         {
+             var chkboxID = '_CheckBox1_' + i;
+             var chkbox = document.getElementsByTagName('input');
+             for(var ii = 0; ii < chkbox.length - 1; ii++)
+             {
+                 if(chkbox[ii].id.indexOf(chkboxID)!= -1)
+                 {
+                     chkbox[ii].checked = document.getElementById('GridView1_SelectAll').checked;
+                 }
+             }
+         }
+     }
+     }
+/* ]]> */
+</script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="x-ua-compatible" content="IE=8;IE=9;IE=11" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ACT Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/img/bar-chart.png">
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    <link rel="stylesheet" href="../vendor/dist/css/adminlte.min.css">
+    @Styles.Render("~/vendor/fontawesome-free/css/all.min.css")
+    @Styles.Render("~/vendor/sb-admin-2.min.css")
+    @Styles.Render("~/Content/loadingSpinner.css")
+    @Styles.Render("~/vendor/datatables/dataTables.bootstrap4.min.css")
+    @Styles.Render("~/vendor/bootstrap-select/bootstrap-multiselect.css")
+    @*@Styles.Render("~/vendor/bootstrap-select/bootstrap-select.css")*@
+    @*@Styles.Render("~/vendor/bootstrap-select/filter_multi_select.css")*@
+
+    @*@Styles.Render("~/Content/bootstrap-datetimepicker.css")*@
+
+
+    <style>
+        .nav-userid, .navbar .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+            .navbar .navbar-nav .nav-link:hover {
+                background-color: #808080;
+                color: #fff;
+            }
+    </style>
+</head>
+<body id="page-top">
+    <div id="wrapper">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav id="nav_topbar" class="navbar navbar-expand navbar-dark bg-dark navbar-fixed-top fixed-top">
+                    <a class="navbar-brand font-weight-bold" href="#">DASHBOARD</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <!-- <a class="nav-link" href="@Url.Action("FunctionHead", "FunctionList")">FUNCTIONS</a>-->
+                            </li>
+                        </ul>
+                        <!-- Right -->
+                        <ul class="navbar-nav nav-flex-icons">
+                            <li class="nav-item">
+                                <a id="topnav_right" style="pointer-events: none;" class="nav-link  border-0 mt-1 mr-2">
+                                    <i class="fab fa-user mr-2"></i> <span id="topnav_right_userid">user</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="topnav_logout" href="@Url.Content("~/Login/Login")" class="nav-link border border-light rounded waves-effect">
+                                    <i class="fa-solid fa-arrow-right-from-bracket mr-1"></i> log out
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid mt-3">
+                    @RenderBody()
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+            <!-- Footer -->
+            <footer id="div_footer" class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>&copy; @DateTime.Now.Year - CTRD 5940</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+
+
+    <!-- 網頁提示訊息 -->
+    @if (ViewBag.Msg != null && ViewBag.Msg != "")
+    {
+        <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(ViewBag.Msg));
+        alert(message);
+        </script>
+
+    }
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @*@Scripts.Render("~/Scripts/bootstrap-datetimepicker.min.js")*@
+    @*@RenderSection("scripts", required: false)*@
+
+    <!-- Bootstrap core JavaScript-->
+    @Scripts.Render("~/vendor/jquery/jquery.min.js")
+    @Scripts.Render("~/vendor/bootstrap/js/bootstrap.bundle.min.js")
+    @*@Scripts.Render("~/vendor/bootstrap/js/bootstrap.min.js")*@
+
+    <!-- Core plugin JavaScript-->
+    @Scripts.Render("~/vendor/jquery-easing/jquery.easing.min.js")
+
+    <!-- Custom scripts for all pages-->
+    @Scripts.Render("~/vendor/sb-admin-2.min.js")
+
+    @Scripts.Render("~/vendor/datatables/jquery.dataTables.min.js")
+    @Scripts.Render("~/vendor/datatables/dataTables.bootstrap4.min.js")
+
+    @Scripts.Render("~/vendor/bootstrap-select/bootstrap-multiselect.js")
+    @*@Scripts.Render("~/vendor/bootstrap-select/bootstrap-select.js")*@
+    @*@Scripts.Render("~/vendor/bootstrap-select/filter-multi-select-bundle.min.js")*@
+    <!-- Page level custom scripts -->
+
+    <script src="../vendor/dist/js/adminlte.min.js"></script>
+
+</body>
+</html>
+
+
+<script>
+    function getCookie(name) {
+        // 使用正则表达式查找特定名称的Cookie值
+        let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        if (match) {
+            return match[2]; // 返回Cookie的值
+        } else {
+            return null; // 如果没有找到则返回null
+        }
+    }
+
+    function formatNumber(value, decimals) {
+        let numValue = Number(value);
+
+        if (!isNaN(numValue)) {
+            return numValue.toFixed(decimals);
+        } else {
+            throw new Error("Value is not a number");
+        }
+    }
+
+    function getCurrentFormattedDateTime() {
+        const now = new Date();
+
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月份从0开始
+        const day = String(now.getDate()).padStart(2, '0');
+
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    }
+
+    function formatDate(date) {
+        // 获取年份、月份、日期、小时、分钟、秒
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+
+        // 返回格式化的日期字符串
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    }
+
+    function getMax(arr) {
+
+        var max;
+        for (var i = 0; i < arr.length; i++) {
+            if (max == null || parseInt(arr[i]) > parseInt(max))
+                max = arr[i];
+        }
+
+        return max;
+    }
+
+</script>

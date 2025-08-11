@@ -1,0 +1,252 @@
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\ACT_DASHBOARD_WEB.dll.config
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\ACT_DASHBOARD_WEB.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\ACT_DASHBOARD_WEB.pdb
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csc.exe
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csc.exe.config
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csc.rsp
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csi.exe
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csi.exe.config
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csi.rsp
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.Managed.Core.targets
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.AppContext.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Collections.Immutable.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Console.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.Compression.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.FileSystem.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.Pipes.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Reflection.Metadata.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.AccessControl.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Claims.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Principal.Windows.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.ValueTuple.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.XmlDocument.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.XPath.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\vbc.exe
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\vbc.exe.config
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\vbc.rsp
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\VBCSCompiler.exe
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\VBCSCompiler.exe.config
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Antlr3.Runtime.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Microsoft.Web.Infrastructure.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Newtonsoft.Json.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Helpers.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Mvc.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Optimization.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Razor.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Deployment.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Razor.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\WebGrease.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Helpers.xml
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Mvc.xml
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Optimization.xml
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Razor.xml
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.xml
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Deployment.xml
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Razor.xml
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Newtonsoft.Json.xml
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Antlr3.Runtime.pdb
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Helpers.resources.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Mvc.resources.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Optimization.resources.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Razor.resources.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.WebPages.resources.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.csprojAssemblyReference.cache
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.csproj.CoreCompileInputs.cache
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.csproj.CopyComplete
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.dll
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.pdb
+D:\ASEKH\K09865\ACT data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Net.Http.Formatting.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\ACT_DASHBOARD_WEB.dll.config
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\ACT_DASHBOARD_WEB.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\ACT_DASHBOARD_WEB.pdb
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csc.exe
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csc.exe.config
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csc.rsp
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csi.exe
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csi.exe.config
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csi.rsp
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.AppContext.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Collections.Immutable.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Console.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.Compression.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.FileSystem.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.Pipes.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Reflection.Metadata.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.AccessControl.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Claims.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.ValueTuple.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.XPath.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\vbc.exe
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\vbc.exe.config
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\vbc.rsp
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\VBCSCompiler.exe
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\VBCSCompiler.exe.config
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Antlr3.Runtime.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Microsoft.Web.Infrastructure.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Newtonsoft.Json.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Net.Http.Formatting.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Helpers.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Mvc.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Optimization.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Razor.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Deployment.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Razor.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\WebGrease.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Helpers.xml
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Mvc.xml
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Optimization.xml
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Razor.xml
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.xml
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Deployment.xml
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Razor.xml
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Newtonsoft.Json.xml
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Antlr3.Runtime.pdb
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Helpers.resources.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Mvc.resources.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Optimization.resources.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Razor.resources.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.WebPages.resources.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.csproj.AssemblyReference.cache
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.csproj.CoreCompileInputs.cache
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.csproj.CopyComplete
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.dll
+D:\Kerwin\ACT_Data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.pdb
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\ACT_DASHBOARD_WEB.dll.config
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\ACT_DASHBOARD_WEB.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\ACT_DASHBOARD_WEB.pdb
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csc.exe
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csc.exe.config
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csc.rsp
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csi.exe
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csi.exe.config
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\csi.rsp
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.Managed.Core.targets
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.AppContext.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Collections.Immutable.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Console.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.Compression.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.FileSystem.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.IO.Pipes.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Reflection.Metadata.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.AccessControl.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Claims.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Security.Principal.Windows.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.ValueTuple.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.XmlDocument.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.XPath.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\vbc.exe
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\vbc.exe.config
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\vbc.rsp
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\VBCSCompiler.exe
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\roslyn\VBCSCompiler.exe.config
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Antlr3.Runtime.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Microsoft.Web.Infrastructure.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Newtonsoft.Json.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Net.Http.Formatting.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Helpers.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Mvc.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Optimization.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Razor.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Deployment.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Razor.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\WebGrease.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Helpers.xml
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Mvc.xml
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Optimization.xml
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.Razor.xml
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.xml
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Deployment.xml
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\System.Web.WebPages.Razor.xml
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Newtonsoft.Json.xml
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Antlr3.Runtime.pdb
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Helpers.resources.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Mvc.resources.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Optimization.resources.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.Razor.resources.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.WebPages.resources.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.csprojAssemblyReference.cache
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.csproj.CoreCompileInputs.cache
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.csproj.CopyComplete
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.dll
+D:\ASEKH\K09865\ACT_data\ACT_DASHBOARD_WEB\ACT_DASHBOARD_WEB\obj\Debug\ACT_DASHBOARD_WEB.pdb
