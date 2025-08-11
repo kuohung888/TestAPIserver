@@ -2108,7 +2108,6 @@
     <Content Include="vendor\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="vendor\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\FunctionList\FunctionPart\Histogram_combine.cshtml" />
-    <Content Include="Views\FunctionList\FunctionHead.cshtml" />
     <Content Include="Views\FunctionList\FunctionPart\HwBinListTable.cshtml" />
     <Content Include="vendor\dist\css\adminlte.css.map" />
     <Content Include="vendor\dist\css\adminlte.min.css.map" />
@@ -2128,6 +2127,7 @@
     <Content Include="vendor\dist\js\adminlte.js.map" />
     <Content Include="vendor\dist\js\adminlte.min.js.map" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\FunctionList\FunctionHead2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -28,3 +28,17 @@
 警告: 比較組件名稱發現不符項目: 組建編號
 錯誤: 無法完成組件的安裝 (hr = 0x80131040)。已終止探查。
 
+2025/08/11 20:21:40,'GetBD Exception error:System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetBD(FilterObject filterObject) 於 C:\Users\jimmy\source\repos\act-analysis-tool_web\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 121
+2025/08/11 21:29:16,'GetLotId Exception error:System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetLotId(FilterObject filterObject) 於 C:\Users\jimmy\source\repos\act-analysis-tool_web\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 343
+2025/08/11 21:29:16,'GetTester Exception error:System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetTester(FilterObject filterObject) 於 C:\Users\jimmy\source\repos\act-analysis-tool_web\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 231
+2025/08/11 21:29:16,'GetWaferId Exception error:System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetWaferId(FilterObject filterObject) 於 C:\Users\jimmy\source\repos\act-analysis-tool_web\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 454
+2025/08/11 21:29:24,'GetLotId Exception error:System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetLotId(FilterObject filterObject) 於 C:\Users\jimmy\source\repos\act-analysis-tool_web\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 343
+2025/08/11 21:29:24,'GetTester Exception error:System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetTester(FilterObject filterObject) 於 C:\Users\jimmy\source\repos\act-analysis-tool_web\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 231
+2025/08/11 21:29:25,'GetWaferId Exception error:System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetWaferId(FilterObject filterObject) 於 C:\Users\jimmy\source\repos\act-analysis-tool_web\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 454

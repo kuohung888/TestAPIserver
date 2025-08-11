@@ -18,51 +18,39 @@ namespace ACT_DASHBOARD_WEB.Controllers
         {
             return View();
         }
-        
 
-        public ActionResult GetBD(FilterObject filterObject)
+
+        ActionResult GetBD(FilterObject filterObject)
         {
+            // 初始化必要的服務和返回物件
             WebApiClient webApiClient = new WebApiClient();
             WriteToLog writeToLog = new WriteToLog();
             MongoGetAllResponse response;
-
             List<string> listBD = new List<string>();
             string returnJson = "";
 
             try
             {
+                // 使用 Stopwatch 記錄執行時間
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
 
-                JArray query = JArray.Parse($"[]");//  JArray.Parse($"[{{\"lot_info.Date\":{{\"$gte\": \"{filterObject.startDate}\", \"$lte\": \"{filterObject.endDate}\"}}}}]");
-
+                // 初始化空查詢陣列
+                JArray query = JArray.Parse($"[]");
 
                 #region 條件篩選
+                // 日期範圍篩選
                 if (filterObject.startDate != null && filterObject.endDate != null)
                 {
                     DateTime outTime = DateTime.Now;
                     if (DateTime.TryParse(filterObject.startDate, out outTime) && DateTime.TryParse(filterObject.endDate, out outTime))
                     {
                         JObject inArray = new JObject { { "$gte", filterObject.startDate }, { "$lte", filterObject.endDate } };
-                        query.Add(new JObject
-                        {
-                            { "lot_info.Date", inArray }
-                        });
+                        query.Add(new JObject { { "lot_info.Date", inArray } });
                     }
                 }
-                //if (filterObject.bd != null && filterObject.bd.Count != 0)
-                //{
-                //    filterObject.bd = filterObject.bd.Where(s => !string.IsNullOrEmpty(s)).ToList();
-                //    if (filterObject.bd.Count != 0)
-                //    {
-                //        JArray jArrayTmp = JArray.Parse($"[ {string.Join(",", filterObject.bd.Select(s => $"\"{s}\""))} ]");
-                //        JObject inArray = new JObject { { "$in", jArrayTmp } };
-                //        query.Add(new JObject
-                //        {
-                //            { "lot_info.Test Program", inArray }
-                //        });
-                //    }
-                //}
+
+                // 測試機篩選
                 if (filterObject.tester != null)
                 {
                     filterObject.tester = filterObject.tester.Where(s => !string.IsNullOrEmpty(s)).ToList();
@@ -70,13 +58,11 @@ namespace ACT_DASHBOARD_WEB.Controllers
                     {
                         JArray jArrayTmp = JArray.Parse($"[ {string.Join(",", filterObject.tester.Select(s => $"\"{s}\""))} ]");
                         JObject inArray = new JObject { { "$in", jArrayTmp } };
-                        query.Add(new JObject
-                        {
-                            { "lot_info.Tester", inArray }
-                        });
+                        query.Add(new JObject { { "lot_info.Tester", inArray } });
                     }
-
                 }
+
+                // 批號篩選
                 if (filterObject.lotId != null)
                 {
                     filterObject.lotId = filterObject.lotId.Where(s => !string.IsNullOrEmpty(s)).ToList();
@@ -84,62 +70,74 @@ namespace ACT_DASHBOARD_WEB.Controllers
                     {
                         JArray jArrayTmp = JArray.Parse($"[ {string.Join(",", filterObject.lotId.Select(s => $"\"{s}\""))} ]");
                         JObject inArray = new JObject { { "$in", jArrayTmp } };
-                        query.Add(new JObject
-                        {
-                            { "lot_info.Lot ID", inArray }
-                        });
+                        query.Add(new JObject { { "lot_info.Lot ID", inArray } });
                     }
                 }
                 #endregion
 
+                // 根據頁面選擇合適的集合
                 string collectionName = "site";
                 if (filterObject.pageName == "hw_bin_list")
                 {
                     collectionName = "concl";
                 }
 
-                // 宣告 Web API body
+                // 建立 MongoDB 查詢
                 MongoGetAll mongoGetAll = new MongoGetAll()
                 {
                     collection = collectionName,
                     query = query,
                     projection = JObject.Parse($"{{\"lot_info.Test Program\": 1}}")
                 };
-                
-                response = webApiClient.MongoGetAllAsync(mongoGetAll).GetAwaiter().GetResult();
-                if(response.error== "Unauthorized")
-                {
-                    //writeToLog.writeToLog("'GetBD response error:" + response.error);
 
+                // 執行 API 請求
+                response = webApiClient.MongoGetAllAsync(mongoGetAll).GetAwaiter().GetResult();
+                if (response?.error == "Unauthorized")
+                {
                     return Content(JsonConvert.SerializeObject(response.error), "application/json");
                 }
 
                 stopwatch.Stop();
                 long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
-              
 
-                for (int i=0; i< response.data.Count; i++)
+                // 檢查響應數據是否為 null
+                if (response?.data != null)
                 {
-                    if (response.data[i]["lot_info"][0]["Test Program"] == null) continue;
-                    string testProgram = response.data[i]["lot_info"][0]["Test Program"].ToString();
-                    if(!listBD.Contains(testProgram))
+                    // 提取唯一的 BD 值
+                    foreach (var item in response.data)
                     {
-                        listBD.Add(testProgram);
+                        if (item["lot_info"] != null && item["lot_info"].Count() > 0 &&
+                            item["lot_info"][0]["Test Program"] != null)
+                        {
+                            string testProgram = item["lot_info"][0]["Test Program"].ToString();
+                            if (!listBD.Contains(testProgram))
+                            {
+                                listBD.Add(testProgram);
+                            }
+                        }
                     }
                 }
-                
-                if (!string.IsNullOrEmpty(response.error))
+                else
                 {
-                    //writeToLog.writeToLog("GetBD response error:" + response.error);
-                    returnJson = response.error;
+                    // 記錄響應數據為 null 的情況
+                    writeToLog.writeToLog("GetBD response.data is null");
                 }
 
-                returnJson = JsonConvert.SerializeObject(listBD);
+                // 處理錯誤或返回結果
+                if (!string.IsNullOrEmpty(response?.error))
+                {
+                    returnJson = response.error;
+                }
+                else
+                {
+                    returnJson = JsonConvert.SerializeObject(listBD);
+                }
             }
             catch (Exception ex)
             {
-                //Console.WriteLine(ex.ToString());
+                // 異常處理與記錄
                 writeToLog.writeToLog("'GetBD Exception error:" + ex.ToString());
+                returnJson = JsonConvert.SerializeObject(new { error = ex.Message });
             }
 
             return Content(returnJson, "application/json");

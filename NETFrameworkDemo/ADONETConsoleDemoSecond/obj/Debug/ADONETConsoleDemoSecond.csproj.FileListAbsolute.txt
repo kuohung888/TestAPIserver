@@ -1,0 +1,8 @@
+E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoSecond\bin\Debug\ADONETConsoleDemoSecond.exe.config
+E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoSecond\bin\Debug\ADONETConsoleDemoSecond.exe
+E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoSecond\bin\Debug\ADONETConsoleDemoSecond.pdb
+E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoSecond\obj\Debug\ADONETConsoleDemoSecond.csproj.AssemblyReference.cache
+E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoSecond\obj\Debug\ADONETConsoleDemoSecond.csproj.SuggestedBindingRedirects.cache
+E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoSecond\obj\Debug\ADONETConsoleDemoSecond.csproj.CoreCompileInputs.cache
+E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoSecond\obj\Debug\ADONETConsoleDemoSecond.exe
+E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoSecond\obj\Debug\ADONETConsoleDemoSecond.pdb

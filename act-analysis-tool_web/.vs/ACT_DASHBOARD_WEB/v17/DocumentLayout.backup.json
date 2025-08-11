@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jimmy\\source\\repos\\act-analysis-tool_web\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2B75EA1A-0E88-40BF-9115-44E5EFB1667B}|ACT_DASHBOARD_WEB\\ACT_DASHBOARD_WEB.csproj|c:\\users\\jimmy\\source\\repos\\act-analysis-tool_web\\act_dashboard_web\\controllers\\mongoapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B75EA1A-0E88-40BF-9115-44E5EFB1667B}|ACT_DASHBOARD_WEB\\ACT_DASHBOARD_WEB.csproj|solutionrelative:act_dashboard_web\\controllers\\mongoapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MongoAPIController.cs",
+              "DocumentMoniker": "C:\\Users\\jimmy\\source\\repos\\act-analysis-tool_web\\ACT_DASHBOARD_WEB\\Controllers\\MongoAPIController.cs",
+              "RelativeDocumentMoniker": "ACT_DASHBOARD_WEB\\Controllers\\MongoAPIController.cs",
+              "ToolTip": "C:\\Users\\jimmy\\source\\repos\\act-analysis-tool_web\\ACT_DASHBOARD_WEB\\Controllers\\MongoAPIController.cs",
+              "RelativeToolTip": "ACT_DASHBOARD_WEB\\Controllers\\MongoAPIController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T13:25:51.453Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
