@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\jimmy\\source\\repos\\act-analysis-tool_web\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\source\\repos\\act-analysis-tool_web\\ACT_DASHBOARD_WEB\\Views\\FunctionList\\FunctionHead.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ACT_DASHBOARD_WEB\\Views\\FunctionList\\FunctionHead.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2B75EA1A-0E88-40BF-9115-44E5EFB1667B}|ACT_DASHBOARD_WEB\\ACT_DASHBOARD_WEB.csproj|c:\\users\\jimmy\\source\\repos\\act-analysis-tool_web\\act_dashboard_web\\controllers\\mongoapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2B75EA1A-0E88-40BF-9115-44E5EFB1667B}|ACT_DASHBOARD_WEB\\ACT_DASHBOARD_WEB.csproj|solutionrelative:act_dashboard_web\\controllers\\mongoapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,15 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MongoAPIController.cs",
               "DocumentMoniker": "C:\\Users\\jimmy\\source\\repos\\act-analysis-tool_web\\ACT_DASHBOARD_WEB\\Controllers\\MongoAPIController.cs",
               "RelativeDocumentMoniker": "ACT_DASHBOARD_WEB\\Controllers\\MongoAPIController.cs",
               "ToolTip": "C:\\Users\\jimmy\\source\\repos\\act-analysis-tool_web\\ACT_DASHBOARD_WEB\\Controllers\\MongoAPIController.cs",
               "RelativeToolTip": "ACT_DASHBOARD_WEB\\Controllers\\MongoAPIController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T13:25:51.453Z",
+              "WhenOpened": "2025-08-11T13:36:10.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FunctionHead.cshtml",
+              "DocumentMoniker": "C:\\Users\\jimmy\\source\\repos\\act-analysis-tool_web\\ACT_DASHBOARD_WEB\\Views\\FunctionList\\FunctionHead.cshtml",
+              "RelativeDocumentMoniker": "ACT_DASHBOARD_WEB\\Views\\FunctionList\\FunctionHead.cshtml",
+              "ToolTip": "C:\\Users\\jimmy\\source\\repos\\act-analysis-tool_web\\ACT_DASHBOARD_WEB\\Views\\FunctionList\\FunctionHead.cshtml",
+              "RelativeToolTip": "ACT_DASHBOARD_WEB\\Views\\FunctionList\\FunctionHead.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAAoAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-11T13:35:45.187Z",
               "EditorCaption": ""
             }
           ]

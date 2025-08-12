@@ -42,3 +42,6 @@
    於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetTester(FilterObject filterObject) 於 C:\Users\jimmy\source\repos\act-analysis-tool_web\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 231
 2025/08/11 21:29:25,'GetWaferId Exception error:System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
    於 ACT_DASHBOARD_WEB.Controllers.MongoAPIController.GetWaferId(FilterObject filterObject) 於 C:\Users\jimmy\source\repos\act-analysis-tool_web\ACT_DASHBOARD_WEB\Controllers\MongoAPIController.cs: 行 454
+2025/08/11 21:37:32,GetBD response.data is null
+2025/08/11 21:54:02,GetBD response.data is null
+2025/08/11 21:54:32,GetBD response.data is null

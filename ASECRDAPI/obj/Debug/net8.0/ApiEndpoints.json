@@ -1,0 +1,59 @@
+[
+  {
+    "ContainingType": "ASECRDAPI.Controllers.ASECRDapi_Controller",
+    "Method": "GetHwBinList",
+    "RelativePath": "api/ASECRDapi_/hw-bin-list",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "select_BD",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "select_Tester",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "select_Lot",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "select_Wafer",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "select_Test_item",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ASECRDAPI.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ASECRDAPI.WeatherForecast, ASECRDAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

@@ -20,7 +20,7 @@ namespace ACT_DASHBOARD_WEB.Controllers
         }
 
 
-        ActionResult GetBD(FilterObject filterObject)
+        public ActionResult GetBD(FilterObject filterObject)
         {
             // 初始化必要的服務和返回物件
             WebApiClient webApiClient = new WebApiClient();
