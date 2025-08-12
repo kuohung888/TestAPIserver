@@ -1,30 +1,23 @@
-建立 Web API 專案
-開啟 Visual Studio 2022
-
-點選「建立新專案」
-
-搜尋並選擇 ASP.NET Core Web API
-
-專案名稱：例如輸入 AseMockApi
-
-點選「下一步」，選擇 .NET 版本（建議使用 .NET 6 或以上）
-
-將「啟用 OpenAPI 支援」勾選上（方便測試）
-
-建立專案！
+1. 建立 Web API 專案
+   開啟 Visual Studio 2022
+   點選「建立新專案」
+   搜尋並選擇 ASP.NET Core Web API
+   專案名稱：例如輸入 AseMockApi
+   點選「下一步」，選擇 .NET 版本（建議使用 .NET 6 或以上）
+   將「啟用 OpenAPI 支援」勾選上（方便測試）
+   建立專案！
 
 2. 設計 API Endpoint（模擬資料回傳）
 你會在 Controllers 資料夾看到預設的 WeatherForecastController.cs。我們可以新增一個控制器 AseMockController.cs：
 這是一個簡化版的 endpoint，可根據參數回傳可重現的假資料。
 
-4. 執行與測試
+3. 執行與測試
 按下 F5 或點選「啟動」
 
 Visual Studio 會啟動內建 Kestrel Server，並打開 Swagger 網頁
-
 在 Swagger UI 中你會看到 /api/AseMock/hw-bin-list 端點，輸入參數並測試！
 
-測試代碼如下：
+4. 測試代碼如下：
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
