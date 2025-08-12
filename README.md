@@ -19,28 +19,28 @@ Visual Studio 會啟動內建 Kestrel Server，並打開 Swagger 網頁
 
 4. 測試代碼如下：
 
-   
-using Microsoft.AspNetCore.Mvc;
-
-[ApiController]
-[Route("api/[controller]")]
-public class AseMockController : ControllerBase
-{
-    [HttpGet("hw-bin-list")]
-    public IActionResult GetHwBinList(
-        [FromQuery] string select_BD,
-        [FromQuery] string select_Tester,
-        [FromQuery] string select_Lot,
-        [FromQuery] string select_Wafer,
-        [FromQuery] string select_Test_item)
-    {
-        var seed = (select_BD + select_Tester + select_Lot + select_Wafer + select_Test_item).GetHashCode();
-        var totalUnits = 5000 + Math.Abs(seed % 3000);
-        var passUnits = totalUnits * 6 / 10;
-        var bins = new[] {
-            new { code = "B00", name = "PASS", count = passUnits },
-            new { code = "B01", name = "BIN-1", count = totalUnits - passUnits }
-        };
+#   
+         using Microsoft.AspNetCore.Mvc;
+         
+         [ApiController]
+         [Route("api/[controller]")]
+         public class AseMockController : ControllerBase
+         {
+             [HttpGet("hw-bin-list")]
+             public IActionResult GetHwBinList(
+                 [FromQuery] string select_BD,
+                 [FromQuery] string select_Tester,
+                 [FromQuery] string select_Lot,
+                 [FromQuery] string select_Wafer,
+                 [FromQuery] string select_Test_item)
+             {
+                 var seed = (select_BD + select_Tester + select_Lot + select_Wafer + select_Test_item).GetHashCode();
+                 var totalUnits = 5000 + Math.Abs(seed % 3000);
+                 var passUnits = totalUnits * 6 / 10;
+                 var bins = new[] {
+                     new { code = "B00", name = "PASS", count = passUnits },
+                     new { code = "B01", name = "BIN-1", count = totalUnits - passUnits }
+                 };
 
         return Ok(new {
             function = "hw_bin_list",
@@ -59,3 +59,4 @@ public class AseMockController : ControllerBase
         });
     }
 }
+
