@@ -1,9 +1,0 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="highlight_system.Properties" GeneratedClassName="Settings">
-  <Profiles />
-  <Settings>
-    <Setting Name="highlight_system_FA_AOI_AOIService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://10.16.22.228:8000/AOIService.asmx</Value>
-    </Setting>
-  </Settings>
-</SettingsFile>
