@@ -1,8 +1,0 @@
-E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoThree\bin\Debug\ADONETConsoleDemoThree.exe.config
-E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoThree\bin\Debug\ADONETConsoleDemoThree.exe
-E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoThree\bin\Debug\ADONETConsoleDemoThree.pdb
-E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoThree\obj\Debug\ADONETConsoleDemoThree.csproj.AssemblyReference.cache
-E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoThree\obj\Debug\ADONETConsoleDemoThree.csproj.SuggestedBindingRedirects.cache
-E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoThree\obj\Debug\ADONETConsoleDemoThree.csproj.CoreCompileInputs.cache
-E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoThree\obj\Debug\ADONETConsoleDemoThree.exe
-E:\2023年上半年\学院工作\教学\教材编写\Demo\NETFrameworkDemo\ADONETConsoleDemoThree\obj\Debug\ADONETConsoleDemoThree.pdb
