@@ -18,6 +18,8 @@ Visual Studio 會啟動內建 Kestrel Server，並打開 Swagger 網頁
 在 Swagger UI 中你會看到 /api/AseMock/hw-bin-list 端點，輸入參數並測試！
 
 4. 測試代碼如下：
+
+   
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
